@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.env
+.env.local
+.env*.local
+.vercel
+.DS_Store
+*.log
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# User-uploaded lead attachments (local-disk mock storage, see app/api/upload/route.ts)
+/public/uploads/*
+!/public/uploads/.gitkeep
