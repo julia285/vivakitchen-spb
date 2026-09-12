@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { getProjectBySlug, projects } from '@/data/projects';
 
 export function generateStaticParams() {
@@ -40,9 +40,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </Heading>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        <PlaceholderImage label={`${project.title} — фото 1`} ratio="aspect-[4/3]" className="md:col-span-2" />
+        <CoverImage
+          src={project.images[0]}
+          alt={`${project.title} — фото 1`}
+          isPlaceholder={project.isPlaceholder}
+          ratio="aspect-[4/3]"
+          className="md:col-span-2"
+          sizes="100vw"
+          priority
+        />
         {project.images.slice(1).map((img, i) => (
-          <PlaceholderImage key={img} label={`${project.title} — фото ${i + 2}`} ratio="aspect-[4/3]" />
+          <CoverImage
+            key={img}
+            src={img}
+            alt={`${project.title} — фото ${i + 2}`}
+            isPlaceholder={project.isPlaceholder}
+            ratio="aspect-[4/3]"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
         ))}
       </div>
 

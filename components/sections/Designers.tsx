@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { trackEvent } from '@/lib/analytics';
 
 const points = [
@@ -47,7 +47,12 @@ export function Designers() {
           </Button>
         </div>
 
-        <PlaceholderImage label="работа с проектом дизайнера" ratio="aspect-[4/3]" />
+        <CoverImage
+          src="/images/projects/proekt-9284/1.webp"
+          alt="Реализованный проект ViVakitchen"
+          ratio="aspect-[4/3]"
+          sizes="(min-width: 1024px) 50vw, 100vw"
+        />
       </div>
     </Section>
   );

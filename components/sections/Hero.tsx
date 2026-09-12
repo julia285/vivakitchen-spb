@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { siteConfig } from '@/config/site';
 
 export function Hero() {
@@ -31,10 +31,13 @@ export function Hero() {
           <p className="mt-6 text-sm text-cream/70">Проект и предварительный расчёт — бесплатно.</p>
         </div>
 
-        <PlaceholderImage
-          label="интерьер кухни ViVakitchen"
+        <CoverImage
+          src="/images/projects/proekt-9002/1.webp"
+          alt="Кухня и гостиная ViVakitchen"
           ratio="aspect-[4/3] lg:aspect-[5/4]"
           className="rounded-lg"
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          priority
         />
       </Container>
     </section>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { TrackedCta } from '@/components/TrackedCta';
 
 export const metadata: Metadata = {
@@ -56,7 +56,13 @@ export default function DesignersPage() {
               Обсудить проект
             </TrackedCta>
           </div>
-          <PlaceholderImage label="работа с проектом дизайнера" ratio="aspect-[4/3]" />
+          <CoverImage
+            src="/images/projects/proekt-9997-kuhnya/2.webp"
+            alt="Реализованный проект ViVakitchen"
+            ratio="aspect-[4/3]"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+          />
         </div>
       </Section>
 

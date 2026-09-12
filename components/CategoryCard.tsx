@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Category } from '@/data/categories';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 
 export function CategoryCard({ category }: { category: Category }) {
   return (
@@ -8,8 +8,10 @@ export function CategoryCard({ category }: { category: Category }) {
       href={category.href}
       className="group block overflow-hidden rounded border border-line bg-white transition-shadow duration-200 hover:shadow-lg"
     >
-      <PlaceholderImage
-        label={category.title}
+      <CoverImage
+        src={category.cover}
+        alt={category.title}
+        isPlaceholder={category.isPlaceholder}
         ratio="aspect-[5/4]"
         className="rounded-none transition-transform duration-200 group-hover:scale-[1.02]"
       />

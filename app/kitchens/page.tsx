@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { ProjectCard } from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
 
@@ -35,7 +35,13 @@ export default function KitchensPage() {
               Рассчитать проект
             </Button>
           </div>
-          <PlaceholderImage label="кухня ViVakitchen" ratio="aspect-[4/3]" />
+          <CoverImage
+            src="/images/projects/proekt-artdom-kuhnya/1.webp"
+            alt="Кухня ViVakitchen"
+            ratio="aspect-[4/3]"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+          />
         </div>
       </Section>
 

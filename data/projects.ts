@@ -1,8 +1,17 @@
 /**
  * Project content model. Add a new project by appending an object here —
- * no component changes needed. `isPlaceholder: true` marks entries whose
- * images are temporary and must be swapped for real ViVakitchen photos
- * before launch (see README "Где добавить новый проект").
+ * no component changes needed.
+ *
+ * Photo source note: the projects below use real ViVakitchen factory
+ * photography, pulled from the factory's own project catalog
+ * (viva-kitchen.com/realizovannyye-proyekty). These are genuine
+ * ViVakitchen-made interiors — but they were not necessarily installed
+ * by this specific Saint Petersburg salon, so descriptions stay factory-
+ * level ("проект фабрики ViVakitchen") rather than claiming this salon
+ * personally delivered them. Replace with the salon's own completed
+ * projects as they accumulate — see README "Где добавить новый проект".
+ * `isPlaceholder: true` marks the few entries still using a generic
+ * placeholder box instead of a real photo.
  */
 
 export type Project = {
@@ -19,113 +28,113 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'kuhnya-s-ostrovom-shpon',
-    title: 'Кухня с островом и шпонированными фасадами',
+    slug: 'proekt-10275',
+    title: 'Кухня со светлыми фасадами и латунным орнаментом',
     category: 'Кухня',
-    cover: '/images/projects/kuhnya-s-ostrovom-shpon/cover.jpg',
+    cover: '/images/projects/proekt-10275/1.webp',
     images: [
-      '/images/projects/kuhnya-s-ostrovom-shpon/1.jpg',
-      '/images/projects/kuhnya-s-ostrovom-shpon/2.jpg',
-      '/images/projects/kuhnya-s-ostrovom-shpon/3.jpg',
+      '/images/projects/proekt-10275/1.webp',
+      '/images/projects/proekt-10275/2.webp',
+      '/images/projects/proekt-10275/3.webp',
     ],
     description:
-      'Проект для кухни-гостиной с рабочим островом и зоной для завтраков. Фасады — шпон натурального дерева, столешница — TODO: уточнить материал.',
-    materials: ['Шпон', 'TODO: уточнить фурнитуру'],
+      'Проект фабрики ViVakitchen: современная эстетика в сочетании с классической архитектурой помещения. Светлые гладкие фасады сочетаются с каменной поверхностью с выразительным природным рисунком, системы хранения интегрированы в архитектуру помещения.',
+    materials: ['Фасады с латунным декором', 'Натуральный камень'],
     featured: true,
-    isPlaceholder: true,
   },
   {
-    slug: 'ugloavaya-kuhnya-matovyy-grafit',
-    title: 'Угловая кухня в матовом графитовом цвете',
+    slug: 'proekt-9002',
+    title: 'Кухня в едином стиле с гостиной и спальней',
     category: 'Кухня',
-    cover: '/images/projects/ugloavaya-kuhnya-matovyy-grafit/cover.jpg',
+    cover: '/images/projects/proekt-9002/1.webp',
     images: [
-      '/images/projects/ugloavaya-kuhnya-matovyy-grafit/1.jpg',
-      '/images/projects/ugloavaya-kuhnya-matovyy-grafit/2.jpg',
+      '/images/projects/proekt-9002/1.webp',
+      '/images/projects/proekt-9002/2.webp',
+      '/images/projects/proekt-9002/3.webp',
     ],
-    description: 'Компактная угловая кухня с системой хранения до потолка.',
-    materials: ['TODO: уточнить материал фасада'],
-    featured: true,
-    isPlaceholder: true,
+    description:
+      'Проект фабрики ViVakitchen: комплексное интерьерное решение, где кухонная зона выполнена в сочетании матовых фасадов и натурального шпона с каменными поверхностями. Встроенные системы хранения и открытые ниши с подсветкой создают баланс функциональности и декоративности.',
+    materials: ['Матовые фасады', 'Натуральный шпон', 'Камень'],
   },
   {
-    slug: 'kuhnya-nisha-derevo',
-    title: 'Кухня в нише с деревянными фасадами',
+    slug: 'proekt-artdom-kuhnya',
+    title: 'Кухня, представленная на выставке ARTDOM',
     category: 'Кухня',
-    cover: '/images/projects/kuhnya-nisha-derevo/cover.jpg',
-    images: ['/images/projects/kuhnya-nisha-derevo/1.jpg', '/images/projects/kuhnya-nisha-derevo/2.jpg'],
-    description: 'Кухня, встроенная в нишу студии, с акцентом на естественные текстуры.',
-    isPlaceholder: true,
-  },
-  {
-    slug: 'garderobnaya-p-obraznaya',
-    title: 'П-образная гардеробная с открытыми и закрытыми модулями',
-    category: 'Гардеробная',
-    cover: '/images/projects/garderobnaya-p-obraznaya/cover.jpg',
-    images: ['/images/projects/garderobnaya-p-obraznaya/1.jpg', '/images/projects/garderobnaya-p-obraznaya/2.jpg'],
-    description: 'Гардеробная комната с индивидуальным наполнением под конкретный гардероб.',
-    featured: true,
-    isPlaceholder: true,
-  },
-  {
-    slug: 'garderobnaya-v-spalne',
-    title: 'Гардеробная зона в спальне',
-    category: 'Гардеробная',
-    cover: '/images/projects/garderobnaya-v-spalne/cover.jpg',
-    images: ['/images/projects/garderobnaya-v-spalne/1.jpg'],
-    description: 'Выделенная зона хранения в спальне за раздвижными дверями.',
-    isPlaceholder: true,
-  },
-  {
-    slug: 'shkaf-kupe-prihozhaya',
-    title: 'Встроенный шкаф-купе в прихожую',
-    category: 'Шкаф',
-    cover: '/images/projects/shkaf-kupe-prihozhaya/cover.jpg',
-    images: ['/images/projects/shkaf-kupe-prihozhaya/1.jpg', '/images/projects/shkaf-kupe-prihozhaya/2.jpg'],
-    description: 'Шкаф под нестандартную нишу прихожей с зеркальными дверями.',
-    featured: true,
-    isPlaceholder: true,
-  },
-  {
-    slug: 'shkaf-detskaya',
-    title: 'Корпусный шкаф в детскую комнату',
-    category: 'Шкаф',
-    cover: '/images/projects/shkaf-detskaya/cover.jpg',
-    images: ['/images/projects/shkaf-detskaya/1.jpg'],
-    description: 'Система хранения для детской с учётом роста ребёнка.',
-    isPlaceholder: true,
-  },
-  {
-    slug: 'mebel-gostinaya-tv-zona',
-    title: 'ТВ-зона и системы хранения для гостиной',
-    category: 'Мебель для интерьера',
-    cover: '/images/projects/mebel-gostinaya-tv-zona/cover.jpg',
-    images: ['/images/projects/mebel-gostinaya-tv-zona/1.jpg', '/images/projects/mebel-gostinaya-tv-zona/2.jpg'],
-    description: 'Мебельная стенка с ТВ-зоной, разработанная под размеры конкретной гостиной.',
-    featured: true,
-    isPlaceholder: true,
-  },
-  {
-    slug: 'kompleksnaya-meblirovka-kvartiry',
-    title: 'Комплексная меблировка квартиры',
-    category: 'Мебель для интерьера',
-    cover: '/images/projects/kompleksnaya-meblirovka-kvartiry/cover.jpg',
+    cover: '/images/projects/proekt-artdom-kuhnya/1.webp',
     images: [
-      '/images/projects/kompleksnaya-meblirovka-kvartiry/1.jpg',
-      '/images/projects/kompleksnaya-meblirovka-kvartiry/2.jpg',
-      '/images/projects/kompleksnaya-meblirovka-kvartiry/3.jpg',
+      '/images/projects/proekt-artdom-kuhnya/1.webp',
+      '/images/projects/proekt-artdom-kuhnya/2.webp',
+      '/images/projects/proekt-artdom-kuhnya/3.webp',
     ],
-    description: 'Кухня, гардеробная и мебель для гостиной в рамках одного проекта.',
-    isPlaceholder: true,
+    description:
+      'Авторский выставочный проект фабрики ViVakitchen. Фасады выполнены в благородном шпоне с глубокой натуральной текстурой, вертикальная фрезеровка острова добавляет ритм композиции. Центральный акцент — стеновая композиция из натурального камня с подсветкой.',
+    materials: ['Шпон', 'Натуральный камень', 'Подсветка'],
+    featured: true,
   },
   {
-    slug: 'kuhnya-po-proektu-dizaynera',
-    title: 'Кухня, реализованная по проекту дизайнера интерьера',
+    slug: 'proekt-9997-kuhnya',
+    title: 'Кухня в комплексном проекте квартиры',
     category: 'Кухня',
-    cover: '/images/projects/kuhnya-po-proektu-dizaynera/cover.jpg',
-    images: ['/images/projects/kuhnya-po-proektu-dizaynera/1.jpg', '/images/projects/kuhnya-po-proektu-dizaynera/2.jpg'],
-    description: 'Проект дизайнера адаптирован под технические возможности фабрики ViVakitchen.',
-    isPlaceholder: true,
+    cover: '/images/projects/proekt-9997-kuhnya/1.webp',
+    images: [
+      '/images/projects/proekt-9997-kuhnya/1.webp',
+      '/images/projects/proekt-9997-kuhnya/2.webp',
+      '/images/projects/proekt-9997-kuhnya/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVakitchen: светлая природная палитра и лаконичная геометрия фасадов формируют современное пространство. Использованы экологичные материалы премиального класса — натуральный шпон, декоративные панели, элементы с отделкой под кожу.',
+    materials: ['Натуральный шпон', 'Декоративные панели', 'Отделка под кожу'],
+  },
+  {
+    slug: 'proekt-artdom-shkaf',
+    title: 'Дизайнерский шкаф, представленный на выставке ARTDOM',
+    category: 'Шкаф',
+    cover: '/images/projects/proekt-artdom-shkaf/1.webp',
+    images: [
+      '/images/projects/proekt-artdom-shkaf/1.webp',
+      '/images/projects/proekt-artdom-shkaf/2.webp',
+      '/images/projects/proekt-artdom-shkaf/3.webp',
+    ],
+    description:
+      'Дизайнерский шкаф фабрики ViVakitchen, разработанный для международной выставки ARTDOM. Композиция построена на сочетании натурального шпона и горизонтальных вставок из кожи. Внутреннее пространство организовано функционально: секции для одежды, выдвижные ящики, витринные зоны с подсветкой.',
+    materials: ['Шпон', 'Вставки из кожи', 'Подсветка'],
+    featured: true,
+  },
+  {
+    slug: 'proekt-9997-shkaf',
+    title: 'Встроенный шкаф в детской комнате',
+    category: 'Шкаф',
+    cover: '/images/projects/proekt-9997-shkaf/1.webp',
+    images: [
+      '/images/projects/proekt-9997-shkaf/1.webp',
+      '/images/projects/proekt-9997-shkaf/2.webp',
+    ],
+    description:
+      'Фрагмент комплексного проекта фабрики ViVakitchen: встроенный шкаф с арочным фасадом в детской комнате, выполненный в едином стиле с остальными помещениями квартиры.',
+  },
+  {
+    slug: 'proekt-9997-garderobnaya',
+    title: 'Гардеробная зона с туалетным столиком',
+    category: 'Гардеробная',
+    cover: '/images/projects/proekt-9997-garderobnaya/1.webp',
+    images: ['/images/projects/proekt-9997-garderobnaya/1.webp'],
+    description:
+      'Фрагмент комплексного проекта фабрики ViVakitchen: гардеробная зона спальни с туалетным столиком и подсветкой, встроенная в общую архитектуру помещения.',
+  },
+  {
+    slug: 'proekt-9284',
+    title: 'Гостиная с витринами и декоративной подсветкой',
+    category: 'Мебель для интерьера',
+    cover: '/images/projects/proekt-9284/1.webp',
+    images: [
+      '/images/projects/proekt-9284/1.webp',
+      '/images/projects/proekt-9284/2.webp',
+      '/images/projects/proekt-9284/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVakitchen: комплексное решение для гостиной, где витрины с тонированным стеклом и LED-подсветкой превращают хранение коллекций и посуды в интерьерную композицию. В отделке — материалы с выразительной древесной текстурой, стекло и металл.',
+    materials: ['Тонированное стекло', 'LED-подсветка', 'Металл'],
+    featured: true,
   },
 ];
 

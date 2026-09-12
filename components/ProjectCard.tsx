@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Project } from '@/data/projects';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { trackEvent } from '@/lib/analytics';
 import clsx from '@/lib/clsx';
 
@@ -13,8 +13,10 @@ export function ProjectCard({ project, size = 'md' }: { project: Project; size?:
       className="group block"
       onClick={() => trackEvent('project_open', { slug: project.slug })}
     >
-      <PlaceholderImage
-        label={project.title}
+      <CoverImage
+        src={project.cover}
+        alt={project.title}
+        isPlaceholder={project.isPlaceholder}
         ratio={size === 'lg' ? 'aspect-[4/3]' : 'aspect-[5/4]'}
         className="transition-transform duration-200 group-hover:scale-[1.01]"
       />
