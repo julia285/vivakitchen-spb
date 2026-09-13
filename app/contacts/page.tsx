@@ -61,7 +61,19 @@ export default function ContactsPage() {
             </div>
           )}
 
-          <RouteButton />
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <RouteButton />
+            {siteConfig.mallMapUrl ? (
+              <a
+                href={siteConfig.mallMapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-medium text-graphite/85 underline hover:text-accent"
+              >
+                Схема ТЦ «Ланской» →
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <YandexMap />

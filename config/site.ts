@@ -41,7 +41,7 @@ export const siteConfig = {
   city: 'Санкт-Петербург',
   addressLine: 'ул. Студенческая, 10',
   mall: 'МЦ «Ланской»',
-  floor: '2 этаж',
+  floor: '2 этаж, секция B56',
   get addressWithoutMall() {
     return `${this.city}, ${this.addressLine}, ${this.floor}`;
   },
@@ -59,6 +59,11 @@ export const siteConfig = {
 
   yandexMapsUrl: 'https://yandex.ru/maps/?rtext=~59.989265,30.327618&rtt=auto',
   yandexMapsEmbedSrc: 'https://yandex.ru/map-widget/v1/?ll=30.327618%2C59.989265&z=17&pt=30.327618,59.989265,pm2rdm',
+
+  // Official interactive floor plan of МЦ «Ланской» — linked rather than
+  // copied onto this site, since it's the mall's own tool and stays
+  // current (unit numbers can change) without us maintaining a copy.
+  mallMapUrl: 'https://www.tk-lanskoy.ru/map/',
 
   // --- Social ---
   instagram: 'https://www.instagram.com/vivakitchenspb',
