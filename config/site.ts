@@ -22,7 +22,7 @@ export const siteConfig = {
   phone: '+7 (921) 420-66-78',
   phoneHref: 'tel:+79214206678',
   email: 'vivakitchenspb@yandex.ru',
-  workingHours: '', // TODO: уточнить у владельца (напр. "Пн–Вс 10:00–20:00")
+  workingHours: 'Пн–Вс 10:00–20:00',
 
   // --- Address ---
   // `mall` is kept separate because several sections show it on its own
@@ -53,7 +53,7 @@ export const siteConfig = {
   yandexMapsEmbedSrc: '', // TODO: вставить embed-ссылку виджета карты
 
   // --- Social ---
-  instagram: '', // TODO: уточнить у владельца
+  instagram: 'https://www.instagram.com/vivakitchenspb',
   vk: 'https://vk.ru/sputnik_st',
 
   // --- Analytics / integrations (read from env, exposed here for convenience) ---

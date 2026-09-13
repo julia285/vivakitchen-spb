@@ -54,6 +54,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     telephone: siteConfig.phone || undefined,
     email: siteConfig.email || undefined,
     url: siteConfig.siteUrl,
+    // Mirrors siteConfig.workingHours ("Пн–Вс 10:00–20:00") — update both
+    // together if hours change.
+    ...(siteConfig.workingHours
+      ? {
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+              'Sunday',
+            ],
+            opens: '10:00',
+            closes: '20:00',
+          },
+        }
+      : {}),
     ...(siteConfig.geo.latitude && siteConfig.geo.longitude
       ? {
           geo: {
