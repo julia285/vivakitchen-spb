@@ -9,14 +9,22 @@
 
 export const siteConfig = {
   // --- Brand ---
-  brandName: 'ViVakitchen Санкт-Петербург',
-  brandShortName: 'ViVakitchen',
+  brandName: 'ViVaKitchen Санкт-Петербург',
+  brandShortName: 'ViVaKitchen',
   legalName: '', // TODO: уточнить у владельца (ИП/ООО, точное юр. название)
+
+  // Logo file dimensions are baked in so <Image> can size it without
+  // layout shift — update both if the logo file changes proportions.
+  logo: {
+    src: '/images/brand/logo.png',
+    width: 392,
+    height: 64,
+  },
 
   // Editable claim of relationship to the factory — kept as a single
   // sentence so it can be changed instantly if the factory agreement
   // changes wording (see item 50 of the brief: no trademark claims yet).
-  officialPartnerLine: 'Официальный салон ViVakitchen в Санкт-Петербурге',
+  officialPartnerLine: 'Официальный салон ViVaKitchen в Санкт-Петербурге',
 
   // --- Contact ---
   phone: '+7 (921) 420-66-78',

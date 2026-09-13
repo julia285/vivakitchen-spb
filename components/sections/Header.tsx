@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
+import { PhoneLink, EmailLink } from '@/components/ContactLinks';
 import clsx from '@/lib/clsx';
 
 const navLinks = [
@@ -34,11 +36,29 @@ export function Header() {
 
   return (
     <>
+      {/* Scrolls away with the page — only the row below stays sticky. */}
+      <div className="hidden border-b border-line bg-milk md:block">
+        <Container className="flex h-9 items-center justify-end gap-6 text-xs text-stone">
+          <span>
+            {siteConfig.mall}, {siteConfig.addressLine}
+          </span>
+          <PhoneLink className="font-medium text-graphite hover:text-accent" />
+          <EmailLink className="hover:text-accent" />
+        </Container>
+      </div>
+
       <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur">
         <Container className="flex h-16 items-center justify-between md:h-20">
-          <Link href="/" className="text-base font-semibold tracking-tight text-graphite md:text-lg">
-            {siteConfig.brandShortName}
-            <span className="ml-1 hidden font-normal text-stone md:inline">Санкт-Петербург</span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src={siteConfig.logo.src}
+              alt={siteConfig.brandShortName}
+              width={siteConfig.logo.width}
+              height={siteConfig.logo.height}
+              priority
+              className="h-6 w-auto md:h-7"
+            />
+            <span className="hidden text-sm text-stone md:inline">Санкт-Петербург</span>
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Основная навигация">
@@ -111,7 +131,14 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button href="/#calc" size="lg" className="mt-3 w-full">
+            <div className="mt-4 flex flex-col gap-1.5 border-t border-line pt-4 text-sm text-stone">
+              <span>
+                {siteConfig.mall}, {siteConfig.addressLine}
+              </span>
+              <PhoneLink className="font-medium text-graphite" />
+              <EmailLink />
+            </div>
+            <Button href="/#calc" size="lg" className="mt-4 w-full">
               Рассчитать проект
             </Button>
           </Container>

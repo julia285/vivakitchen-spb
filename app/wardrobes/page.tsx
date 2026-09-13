@@ -36,7 +36,7 @@ export default function WardrobesPage() {
           </div>
           <CoverImage
             src="/images/projects/proekt-artdom-shkaf/1.webp"
-            alt="Шкаф ViVakitchen"
+            alt="Шкаф ViVaKitchen"
             ratio="aspect-[4/3]"
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority

@@ -8,7 +8,7 @@ export type Category = {
 };
 
 /**
- * Cover photos are real ViVakitchen factory photography (from the
+ * Cover photos are real ViVaKitchen factory photography (from the
  * factory's own project catalog, viva-kitchen.com/realizovannyye-proyekty),
  * used here as category imagery — not claims that this specific salon
  * installed the pictured interiors. Swap for salon-specific photos once

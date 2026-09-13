@@ -2,7 +2,7 @@ import { Container } from '@/components/ui/Container';
 
 const items = [
   '25 лет опыта',
-  'Официальный салон ViVakitchen',
+  'Официальный салон ViVaKitchen',
   'Проектирование бесплатно',
   'Доставка и монтаж',
 ];

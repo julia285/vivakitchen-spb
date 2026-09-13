@@ -4,7 +4,7 @@ import clsx from '@/lib/clsx';
  * Explicit stand-in for a real photo. Renders a soft gradient block with
  * a visible label instead of a stock photo, per the brief: no random
  * stock imagery, and every placeholder must be obviously temporary.
- * Swap for a real <Image> once ViVakitchen photos are in /public/images.
+ * Swap for a real <Image> once ViVaKitchen photos are in /public/images.
  */
 export function PlaceholderImage({
   label,

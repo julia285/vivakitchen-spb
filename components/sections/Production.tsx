@@ -9,10 +9,10 @@ export function Production() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div className="min-w-0">
           <Heading level={2} eyebrow="Производство" tone="light">
-            Производство ViVakitchen
+            Производство ViVaKitchen
           </Heading>
           <Text tone="light" className="mt-5">
-            Мебель производит фабрика ViVakitchen. Наш салон в Санкт-Петербурге сопровождает
+            Мебель производит фабрика ViVaKitchen. Наш салон в Санкт-Петербурге сопровождает
             проект от разработки до установки: обсуждает задачу, готовит проект и расчёт,
             передаёт заказ на фабрику и организует доставку и монтаж.
           </Text>

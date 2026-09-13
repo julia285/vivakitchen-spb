@@ -33,7 +33,7 @@ export function Hero() {
 
         <CoverImage
           src="/images/projects/proekt-9002/1.webp"
-          alt="Кухня и гостиная ViVakitchen"
+          alt="Кухня и гостиная ViVaKitchen"
           ratio="aspect-[4/3] lg:aspect-[5/4]"
           className="rounded-lg"
           sizes="(min-width: 1024px) 50vw, 100vw"

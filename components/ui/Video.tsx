@@ -15,7 +15,7 @@ export function Video({ src, poster }: { src?: string; poster?: string }) {
     return (
       <div className="flex aspect-video items-center justify-center rounded-lg bg-graphite text-cream/70">
         <p className="px-6 text-center text-sm">
-          TODO: вставить ролик о производстве ViVakitchen (файл или ссылка на хостинг видео)
+          TODO: вставить ролик о производстве ViVaKitchen (файл или ссылка на хостинг видео)
         </p>
       </div>
     );
@@ -29,7 +29,7 @@ export function Video({ src, poster }: { src?: string; poster?: string }) {
           setPlaying(true);
           trackEvent('video_play');
         }}
-        aria-label="Воспроизвести видео о производстве ViVakitchen"
+        aria-label="Воспроизвести видео о производстве ViVaKitchen"
         className="group relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg bg-graphite"
       >
         {poster ? (

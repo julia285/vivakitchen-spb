@@ -49,7 +49,7 @@ export function Designers() {
 
         <CoverImage
           src="/images/projects/proekt-9284/1.webp"
-          alt="Реализованный проект ViVakitchen"
+          alt="Реализованный проект ViVaKitchen"
           ratio="aspect-[4/3]"
           sizes="(min-width: 1024px) 50vw, 100vw"
         />

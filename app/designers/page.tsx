@@ -8,14 +8,14 @@ import { TrackedCta } from '@/components/TrackedCta';
 export const metadata: Metadata = {
   title: 'Дизайнерам и архитекторам',
   description:
-    'Работаем с готовыми дизайн-проектами: техническая адаптация, подбор материалов, производство на фабрике ViVakitchen, доставка и монтаж.',
+    'Работаем с готовыми дизайн-проектами: техническая адаптация, подбор материалов, производство на фабрике ViVaKitchen, доставка и монтаж.',
   alternates: { canonical: '/designers' },
 };
 
 const points = [
   {
     title: 'Работа по готовому проекту',
-    text: 'Присылаете проект — мы разбираем задачу и оцениваем реализуемость на производстве ViVakitchen.',
+    text: 'Присылаете проект — мы разбираем задачу и оцениваем реализуемость на производстве ViVaKitchen.',
   },
   {
     title: 'Техническая адаптация',
@@ -50,7 +50,7 @@ export default function DesignersPage() {
             </Heading>
             <Text tone="muted" className="mt-5">
               Работаем с готовыми дизайн-проектами и помогаем адаптировать идеи под реальные
-              возможности производства ViVakitchen.
+              возможности производства ViVaKitchen.
             </Text>
             <TrackedCta href="/#calc" event="designer_cta_click" size="lg" className="mt-7">
               Обсудить проект
@@ -58,7 +58,7 @@ export default function DesignersPage() {
           </div>
           <CoverImage
             src="/images/projects/proekt-9997-kuhnya/2.webp"
-            alt="Реализованный проект ViVakitchen"
+            alt="Реализованный проект ViVaKitchen"
             ratio="aspect-[4/3]"
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority

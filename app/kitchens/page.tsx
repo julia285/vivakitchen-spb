@@ -10,7 +10,7 @@ import { projects } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'Кухни на заказ в Санкт-Петербурге',
   description:
-    'Кухни по индивидуальному проекту от фабрики ViVakitchen. Бесплатное проектирование и предварительный расчёт.',
+    'Кухни по индивидуальному проекту от фабрики ViVaKitchen. Бесплатное проектирование и предварительный расчёт.',
   alternates: { canonical: '/kitchens' },
 };
 
@@ -28,7 +28,7 @@ export default function KitchensPage() {
             </Heading>
             <Text tone="muted" className="mt-5">
               Каждая кухня проектируется под конкретное помещение — размеры, планировку и
-              пожелания по материалам. Изготовление — на фабрике ViVakitchen, сопровождение
+              пожелания по материалам. Изготовление — на фабрике ViVaKitchen, сопровождение
               проекта — в нашем салоне в Санкт-Петербурге.
             </Text>
             <Button href="/#calc" size="lg" className="mt-7">
@@ -37,7 +37,7 @@ export default function KitchensPage() {
           </div>
           <CoverImage
             src="/images/projects/proekt-artdom-kuhnya/1.webp"
-            alt="Кухня ViVakitchen"
+            alt="Кухня ViVaKitchen"
             ratio="aspect-[4/3]"
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority
