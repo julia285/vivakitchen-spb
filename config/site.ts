@@ -19,9 +19,9 @@ export const siteConfig = {
   officialPartnerLine: 'Официальный салон ViVakitchen в Санкт-Петербурге',
 
   // --- Contact ---
-  phone: '', // TODO: уточнить у владельца
-  phoneHref: '', // TODO: tel: link, e.g. tel:+78121234567
-  email: '', // TODO: уточнить у владельца (действующая почта салона)
+  phone: '+7 (921) 420-66-78',
+  phoneHref: 'tel:+79214206678',
+  email: 'vivakitchenspb@yandex.ru',
   workingHours: '', // TODO: уточнить у владельца (напр. "Пн–Вс 10:00–20:00")
 
   // --- Address ---
@@ -54,7 +54,7 @@ export const siteConfig = {
 
   // --- Social ---
   instagram: '', // TODO: уточнить у владельца
-  vk: '', // TODO: уточнить у владельца
+  vk: 'https://vk.ru/sputnik_st',
 
   // --- Analytics / integrations (read from env, exposed here for convenience) ---
   yandexMetrikaId: process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID ?? '',

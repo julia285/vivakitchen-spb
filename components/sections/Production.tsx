@@ -17,7 +17,7 @@ export function Production() {
             передаёт заказ на фабрику и организует доставку и монтаж.
           </Text>
         </div>
-        <Video />
+        <Video src="/video/production.mp4" poster="/video/production-poster.jpg" />
       </div>
     </Section>
   );
