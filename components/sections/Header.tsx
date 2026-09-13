@@ -55,7 +55,7 @@ export function Header() {
     <>
       <div ref={stickyRef} className="sticky top-0 z-50 bg-cream/95 backdrop-blur">
         <div className="border-b border-line bg-milk">
-          <Container className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 py-1.5 text-[11px] text-stone sm:justify-end sm:text-xs">
+          <Container className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 py-1.5 text-[11px] text-stone sm:justify-between sm:text-xs">
             <span>
               {siteConfig.mall}, {siteConfig.addressLine}
             </span>
@@ -73,12 +73,12 @@ export function Header() {
                 width={siteConfig.logo.width}
                 height={siteConfig.logo.height}
                 priority
-                className="h-6 w-auto md:h-7"
+                className="h-5 w-auto shrink-0 sm:h-6 md:h-7"
               />
-              <span className="hidden text-sm text-stone md:inline">Санкт-Петербург</span>
+              <span className="whitespace-nowrap text-xs text-stone sm:text-sm">Санкт-Петербург</span>
             </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex" aria-label="Основная навигация">
+            <nav className="hidden items-center gap-6 xl:flex" aria-label="Основная навигация">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -100,7 +100,7 @@ export function Header() {
                 aria-expanded={open}
                 aria-controls="mobile-menu"
                 onClick={() => setOpen((v) => !v)}
-                className="flex h-11 w-11 items-center justify-center rounded border border-line lg:hidden"
+                className="flex h-11 w-11 items-center justify-center rounded border border-line xl:hidden"
               >
                 <span className="relative block h-3.5 w-5" aria-hidden>
                   <span
@@ -138,7 +138,7 @@ export function Header() {
         <div
           id="mobile-menu"
           style={{ top: stickyHeight }}
-          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-t border-line bg-cream lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto border-t border-line bg-cream xl:hidden"
         >
           <Container className="flex flex-col gap-1 py-6">
             {navLinks.map((link) => (
