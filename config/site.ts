@@ -49,16 +49,16 @@ export const siteConfig = {
     return `${this.city}, ${this.addressLine}, ${this.mall}, ${this.floor}`;
   },
 
-  // TODO: подтвердить точные координаты для карты и structured data.
+  // Coordinates of the МЦ «Ланской» building (Студенческая ул., 10) — good
+  // enough for a map pin and LocalBusiness structured data. Not the exact
+  // in-mall unit, which Yandex Maps/2ГИС don't resolve to separately.
   geo: {
-    latitude: null as number | null,
-    longitude: null as number | null,
+    latitude: 59.989265 as number | null,
+    longitude: 30.327618 as number | null,
   },
 
-  // Yandex Maps embed / route builder — org id TODO once the showroom
-  // is confirmed on Yandex Maps (or a manual pin URL is created).
-  yandexMapsUrl: '', // TODO: уточнить — ссылка на организацию/точку на Яндекс Картах
-  yandexMapsEmbedSrc: '', // TODO: вставить embed-ссылку виджета карты
+  yandexMapsUrl: 'https://yandex.ru/maps/?rtext=~59.989265,30.327618&rtt=auto',
+  yandexMapsEmbedSrc: 'https://yandex.ru/map-widget/v1/?ll=30.327618%2C59.989265&z=17&pt=30.327618,59.989265,pm2rdm',
 
   // --- Social ---
   instagram: 'https://www.instagram.com/vivakitchenspb',
