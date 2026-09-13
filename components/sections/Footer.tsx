@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { Container } from '@/components/ui/Container';
@@ -8,8 +9,14 @@ export function Footer() {
     <footer className="border-t border-line bg-milk">
       <Container className="grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <p className="text-base font-semibold text-graphite">{siteConfig.brandShortName}</p>
-          <p className="mt-2 text-sm text-stone">{siteConfig.officialPartnerLine}</p>
+          <Image
+            src={siteConfig.logo.src}
+            alt={siteConfig.brandShortName}
+            width={siteConfig.logo.width}
+            height={siteConfig.logo.height}
+            className="h-6 w-auto"
+          />
+          <p className="mt-3 text-sm text-stone">{siteConfig.officialPartnerLine}</p>
         </div>
 
         <nav aria-label="Разделы" className="flex flex-col gap-2 text-sm">
