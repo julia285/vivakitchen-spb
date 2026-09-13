@@ -93,7 +93,7 @@ export async function sendLeadToKaiten(payload: LeadPayload): Promise<void> {
   });
 }
 
-function buildCardDescription(payload: LeadPayload): string {
+export function buildCardDescription(payload: LeadPayload): string {
   const lines = [
     `Имя: ${payload.name}`,
     `Телефон: ${payload.phone}`,
