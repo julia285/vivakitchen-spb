@@ -17,16 +17,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Имя и телефон обязательны' }, { status: 400 });
   }
 
-  // Two independent delivery channels — if one fails (e.g. Kaiten API is
-  // down) the other still gets the lead, and neither failure blocks the
-  // response to the visitor.
-  const results = await Promise.allSettled([sendLeadToKaiten(payload), sendLeadNotificationEmail(payload)]);
-
-  for (const result of results) {
-    if (result.status === 'rejected') {
-      console.error('[lead] delivery channel failed:', result.reason);
+  // Deliberately not awaited: some mail servers (Yandex included) delay
+  // the SMTP greeting for unfamiliar sending IPs as an anti-spam measure,
+  // which can add minutes — the visitor shouldn't sit staring at the form
+  // that long. Runs in the background instead; safe because this app is
+  // a long-running `next start` server (not a serverless function that
+  // gets frozen the moment the response is sent).
+  Promise.allSettled([sendLeadToKaiten(payload), sendLeadNotificationEmail(payload)]).then((results) => {
+    for (const result of results) {
+      if (result.status === 'rejected') {
+        console.error('[lead] delivery channel failed:', result.reason);
+      }
     }
-  }
+  });
 
   return NextResponse.json({ ok: true });
 }
