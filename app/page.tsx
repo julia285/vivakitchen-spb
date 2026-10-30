@@ -1,4 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
+import { PromoBanner } from '@/components/sections/PromoBanner';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { Categories } from '@/components/sections/Categories';
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <PromoBanner />
       <TrustStrip />
       <Categories />
       <FeaturedProjects />

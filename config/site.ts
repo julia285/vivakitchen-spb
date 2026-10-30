@@ -65,6 +65,16 @@ export const siteConfig = {
   // current (unit numbers can change) without us maintaining a copy.
   mallMapUrl: 'https://www.tk-lanskoy.ru/map/',
 
+  // Seasonal promo banner on the homepage. Set `enabled: false` when the
+  // promotion ends — nothing else needs to change. The creative has no
+  // percentages or dates baked in, so it stays accurate until switched off.
+  promo: {
+    enabled: true as boolean,
+    image: '/images/promo/new-year-banner.webp',
+    alt: 'Новогодние скидки на кухни и шкафы ViVaKitchen. Встречайте Новый год в доме, о котором мечтали!',
+    note: 'Условия акции уточняйте в салоне или по телефону',
+  },
+
   // --- Social ---
   instagram: 'https://www.instagram.com/vivakitchenspb',
   vk: 'https://vk.ru/sputnik_st',
