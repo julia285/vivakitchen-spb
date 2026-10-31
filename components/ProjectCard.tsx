@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Project } from '@/data/projects';
+import { Project, projectOrigin } from '@/data/projects';
 import { CoverImage } from '@/components/ui/CoverImage';
 import { trackEvent } from '@/lib/analytics';
 import clsx from '@/lib/clsx';
@@ -22,6 +22,7 @@ export function ProjectCard({ project, size = 'md' }: { project: Project; size?:
       />
       <div className="mt-3">
         <p className="text-xs font-medium uppercase tracking-wide text-stone">{project.category}</p>
+        <p className="mt-0.5 text-xs text-stone">{projectOrigin(project)}</p>
         <h3 className={clsx('mt-1 font-semibold text-graphite', size === 'lg' ? 'text-xl' : 'text-base')}>
           {project.title}
         </h3>

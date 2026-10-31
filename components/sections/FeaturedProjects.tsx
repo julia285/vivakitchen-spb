@@ -8,8 +8,8 @@ export function FeaturedProjects() {
   return (
     <Section tone="milk">
       <div className="flex flex-wrap items-end justify-between gap-6">
-        <Heading level={2} eyebrow="Реализованные проекты">
-          Кухни, шкафы и мебель, которые мы спроектировали
+        <Heading level={2} eyebrow="Примеры работ фабрики">
+          Проекты ViVaKitchen
         </Heading>
         <Button href="/projects" variant="secondary">
           Все проекты

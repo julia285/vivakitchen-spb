@@ -5,7 +5,7 @@ import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { CoverImage } from '@/components/ui/CoverImage';
-import { getProjectBySlug, projects } from '@/data/projects';
+import { getProjectBySlug, projectOrigin, projects } from '@/data/projects';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -34,7 +34,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <Section className="pt-10 md:pt-14">
-      <p className="text-xs font-medium uppercase tracking-wide text-stone">{project.category}</p>
+      <p className="text-xs font-medium uppercase tracking-wide text-stone">
+        {project.category} · {projectOrigin(project)}
+      </p>
       <Heading level={1} className="mt-2">
         {project.title}
       </Heading>

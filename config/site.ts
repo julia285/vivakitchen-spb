@@ -24,7 +24,9 @@ export const siteConfig = {
   // Editable claim of relationship to the factory — kept as a single
   // sentence so it can be changed instantly if the factory agreement
   // changes wording (see item 50 of the brief: no trademark claims yet).
-  officialPartnerLine: 'Официальный салон ViVaKitchen в Санкт-Петербурге',
+  // Wording follows the factory's own rule for dealer sites (dealer channel,
+  // 23.09.2025): the homepage must plainly say "дилер, представитель ТМ".
+  officialPartnerLine: 'Дилер, представитель ТМ ViVaKitchen в Санкт-Петербурге',
 
   // --- Contact ---
   phone: '+7 (921) 420-66-78',

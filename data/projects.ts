@@ -22,9 +22,14 @@ export type Project = {
   images: string[];
   description?: string;
   materials?: string[];
+  /** Where the work comes from; defaults to DEFAULT_ORIGIN. Shown next to the project so
+   *  factory/exhibition pieces are never presented as this salon's own installations. */
+  origin?: string;
   featured?: boolean;
   isPlaceholder?: boolean;
 };
+
+export const DEFAULT_ORIGIN = 'Проект фабрики ViVaKitchen';
 
 export const projects: Project[] = [
   {
@@ -58,6 +63,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-artdom-kuhnya',
+    origin: 'Выставочная экспозиция ARTDOM',
     title: 'Кухня, представленная на выставке ARTDOM',
     category: 'Кухня',
     cover: '/images/projects/proekt-artdom-kuhnya/1.webp',
@@ -87,6 +93,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-artdom-shkaf',
+    origin: 'Выставочная экспозиция ARTDOM',
     title: 'Дизайнерский шкаф, представленный на выставке ARTDOM',
     category: 'Шкаф',
     cover: '/images/projects/proekt-artdom-shkaf/1.webp',
@@ -136,7 +143,111 @@ export const projects: Project[] = [
     materials: ['Тонированное стекло', 'LED-подсветка', 'Металл'],
     featured: true,
   },
+  // Entries below come from the factory's dealer channel (photos of finished
+  // interiors, some shown in other dealers' salons) — hence "проект фабрики",
+  // never "наш проект". Descriptions only restate what the factory's own
+  // captions say or what is visible in the photos.
+  {
+    slug: 'kuhnya-gola-minimalizm',
+    title: 'Минималистичная кухня без ручек',
+    category: 'Кухня',
+    cover: '/images/projects/kuhnya-gola-minimalizm/1.webp',
+    images: [
+      '/images/projects/kuhnya-gola-minimalizm/1.webp',
+      '/images/projects/kuhnya-gola-minimalizm/2.webp',
+      '/images/projects/kuhnya-gola-minimalizm/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen: строгая геометрия светлых фасадов. Профиль GOLA заменяет ручки, поэтому линии получаются чистыми, а кухня органично продолжает гостиную.',
+    materials: ['Профиль GOLA', 'Светлые фасады'],
+  },
+  {
+    slug: 'kuhnya-shpon-ostrov',
+    title: 'Кухня с островом и панелями «ёлочкой»',
+    category: 'Кухня',
+    cover: '/images/projects/kuhnya-shpon-ostrov/1.webp',
+    images: [
+      '/images/projects/kuhnya-shpon-ostrov/1.webp',
+      '/images/projects/kuhnya-shpon-ostrov/2.webp',
+      '/images/projects/kuhnya-shpon-ostrov/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen из комплексного интерьера квартиры: просторная кухня-гостиная с островом и барными стульями. Тёплый шпон высоких шкафов сочетается со светлыми панелями с рисунком «ёлочкой» и латунными акцентами.',
+    materials: ['Шпон', 'Светлые панели', 'Латунные акценты'],
+  },
+  {
+    slug: 'kuhnya-dub-keramika',
+    title: 'Кухня: тонированный дуб и керамика',
+    category: 'Кухня',
+    cover: '/images/projects/kuhnya-dub-keramika/1.webp',
+    images: [
+      '/images/projects/kuhnya-dub-keramika/1.webp',
+      '/images/projects/kuhnya-dub-keramika/2.webp',
+      '/images/projects/kuhnya-dub-keramika/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen: тёплая природная фактура тонированного шпона дуба соединена с керамическими фасадами. Витрины с тонированным стеклом и встроенная техника сохраняют линии кухни спокойными.',
+    materials: ['Тонированный шпон дуба', 'Керамические фасады', 'Тонированное стекло'],
+  },
+  {
+    slug: 'garderobnaya-ostrov',
+    title: 'Гардеробная с островом',
+    category: 'Гардеробная',
+    cover: '/images/projects/garderobnaya-ostrov/1.webp',
+    images: [
+      '/images/projects/garderobnaya-ostrov/1.webp',
+      '/images/projects/garderobnaya-ostrov/2.webp',
+    ],
+    description:
+      'Фрагмент комплексного проекта фабрики ViVaKitchen: просторная гардеробная с островом с ящиками, открытыми секциями для одежды и закрытыми фасадами со встроенными нишами.',
+  },
+  {
+    slug: 'garderobnaya-vitrinnye-dveri',
+    title: 'Гардеробная с витринными дверями',
+    category: 'Гардеробная',
+    cover: '/images/projects/garderobnaya-vitrinnye-dveri/1.webp',
+    images: [
+      '/images/projects/garderobnaya-vitrinnye-dveri/1.webp',
+      '/images/projects/garderobnaya-vitrinnye-dveri/2.webp',
+      '/images/projects/garderobnaya-vitrinnye-dveri/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen: угловая гардеробная, где фасады из эмали и ткани дополнены металлическими решётками и латунной инкрустацией. Подсветка внутри секций подчёркивает фактуры и помогает быстро найти нужную вещь.',
+    materials: ['Эмаль', 'Ткань', 'Латунь', 'Металлические решётки'],
+  },
+  {
+    slug: 'shkaf-marketri-latun',
+    title: 'Шкаф с маркетри из шпона и латунью',
+    category: 'Шкаф',
+    cover: '/images/projects/shkaf-marketri-latun/1.webp',
+    images: [
+      '/images/projects/shkaf-marketri-latun/1.webp',
+      '/images/projects/shkaf-marketri-latun/2.webp',
+      '/images/projects/shkaf-marketri-latun/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen: распашные двери с маркетри из шпона чередуются с глянцевыми фасадами, инкрустированными натуральной латунью. Работа со шпоном делает шкаф самостоятельным элементом интерьера.',
+    materials: ['Шпон (маркетри)', 'Глянцевые фасады', 'Латунь'],
+  },
+  {
+    slug: 'prihozhaya-shpon-latun',
+    title: 'Прихожая: шпоновые панели и шкаф в эмали',
+    category: 'Мебель для интерьера',
+    cover: '/images/projects/prihozhaya-shpon-latun/1.webp',
+    images: [
+      '/images/projects/prihozhaya-shpon-latun/1.webp',
+      '/images/projects/prihozhaya-shpon-latun/2.webp',
+      '/images/projects/prihozhaya-shpon-latun/3.webp',
+    ],
+    description:
+      'Проект фабрики ViVaKitchen: стеновые панели из шпона с подсветкой и латунным декором рядом со шкафом в супер матовой эмали. Подсветка и латунь добавляют композиции характер.',
+    materials: ['Шпон', 'Супер матовая эмаль', 'Латунь', 'Подсветка'],
+  },
 ];
+
+export function projectOrigin(project: Project): string {
+  return project.origin ?? DEFAULT_ORIGIN;
+}
 
 export const featuredProjects = projects.filter((p) => p.featured);
 

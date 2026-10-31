@@ -39,13 +39,19 @@ export function Video({ src, poster }: { src?: string; poster?: string }) {
         <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-cream/90 transition-transform duration-200 group-hover:scale-105">
           <span className="ml-1 h-0 w-0 border-y-[10px] border-l-[16px] border-y-transparent border-l-graphite" />
         </span>
+        <span className="absolute bottom-2 left-2 rounded-sm bg-graphite/70 px-2 py-0.5 text-[11px] leading-tight text-cream">
+          Бренд ViVaKitchen
+        </span>
       </button>
     );
   }
 
   return (
-    <div className="aspect-video overflow-hidden rounded-lg bg-black">
-      <video src={src} controls autoPlay className="h-full w-full" />
-    </div>
+    <figure>
+      <div className="aspect-video overflow-hidden rounded-lg bg-black">
+        <video src={src} controls autoPlay className="h-full w-full" />
+      </div>
+      <figcaption className="mt-2 text-xs text-cream/70">Бренд ViVaKitchen</figcaption>
+    </figure>
   );
 }

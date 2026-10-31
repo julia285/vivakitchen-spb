@@ -7,6 +7,10 @@ import { PlaceholderImage } from './PlaceholderImage';
  * labeled placeholder box otherwise — so content can be added
  * incrementally (see data/projects.ts, data/categories.ts) without
  * touching the components that render it.
+ *
+ * Every real photo carries a "Бренд ViVaKitchen" credit: the factory's
+ * content-usage rules (dealer channel, 23.09.2025) require a readable
+ * reference to the manufacturer under any of its images or videos.
  */
 export function CoverImage({
   src,
@@ -32,6 +36,9 @@ export function CoverImage({
   return (
     <div className={clsx(ratio, 'relative overflow-hidden rounded bg-milk', className)}>
       <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+      <span className="absolute bottom-2 left-2 rounded-sm bg-graphite/70 px-2 py-0.5 text-[11px] leading-tight text-cream">
+        Бренд ViVaKitchen
+      </span>
     </div>
   );
 }

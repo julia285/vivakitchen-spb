@@ -24,6 +24,7 @@ export function LeadForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<{ name?: string; phone?: string; consent?: string }>({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [fileName, setFileName] = useState('');
   const hasTrackedOpen = useRef(false);
 
   useEffect(() => {
@@ -145,13 +146,23 @@ export function LeadForm() {
           </FormField>
 
           <FormField label="Файл — размеры, план или проект (PDF, JPG, PNG)" htmlFor="file">
-            <input
-              id="file"
-              name="file"
-              type="file"
-              accept=".pdf,.jpg,.jpeg,.png"
-              className="text-sm text-graphite file:mr-3 file:rounded file:border-0 file:bg-milk file:px-3.5 file:py-2 file:text-sm file:font-medium file:text-graphite hover:file:bg-line"
-            />
+            <div className="flex flex-wrap items-center gap-3">
+              <label
+                htmlFor="file"
+                className="inline-flex cursor-pointer items-center rounded bg-milk px-3.5 py-2 text-sm font-medium text-graphite hover:bg-line focus-within:ring-2 focus-within:ring-accent"
+              >
+                Прикрепить файл
+                <input
+                  id="file"
+                  name="file"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="sr-only"
+                  onChange={(e) => setFileName(e.target.files?.[0]?.name ?? '')}
+                />
+              </label>
+              <span className="min-w-0 truncate text-sm text-stone">{fileName || 'Файл не выбран'}</span>
+            </div>
           </FormField>
 
           <label className="flex items-start gap-2.5 text-sm text-stone">
