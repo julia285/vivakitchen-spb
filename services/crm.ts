@@ -78,7 +78,7 @@ export async function sendLeadToKaiten(payload: LeadPayload): Promise<void> {
     return;
   }
 
-  await fetch(`${apiUrl}/cards`, {
+  const res = await fetch(`${apiUrl}/cards`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +90,14 @@ export async function sendLeadToKaiten(payload: LeadPayload): Promise<void> {
       title: dealTitle(payload.name, payload.category),
       description: buildCardDescription(payload),
     }),
+    signal: AbortSignal.timeout(15000),
   });
+
+  // fetch doesn't reject on 4xx/5xx — without this a wrong token or ID would
+  // silently drop every lead.
+  if (!res.ok) {
+    throw new Error(`Kaiten create card failed: HTTP ${res.status} ${(await res.text()).slice(0, 200)}`);
+  }
 }
 
 export function buildCardDescription(payload: LeadPayload): string {
@@ -100,7 +107,7 @@ export function buildCardDescription(payload: LeadPayload): string {
     payload.email ? `Email: ${payload.email}` : null,
     payload.category ? `Категория: ${categoryLabels[payload.category]}` : null,
     payload.comment ? `Комментарий: ${payload.comment}` : null,
-    payload.fileUrl ? `Файл: ${payload.fileUrl}` : null,
+    payload.fileUrl ? `Файл: ${absoluteFileUrl(payload)}` : null,
     `Страница: ${payload.pageUrl}`,
     `Источник: website`,
     payload.utm.utm_source ? `utm_source: ${payload.utm.utm_source}` : null,
@@ -111,4 +118,14 @@ export function buildCardDescription(payload: LeadPayload): string {
   ].filter(Boolean);
 
   return lines.join('\n');
+}
+
+// /api/upload answers with a site-relative path, useless inside Kaiten or a
+// Telegram message — resolve it against the page the lead was sent from.
+function absoluteFileUrl(payload: LeadPayload): string {
+  try {
+    return new URL(payload.fileUrl as string, payload.pageUrl).toString();
+  } catch {
+    return payload.fileUrl as string;
+  }
 }
