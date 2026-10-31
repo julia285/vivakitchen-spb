@@ -4,6 +4,8 @@ import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { CoverImage } from '@/components/ui/CoverImage';
 import { TrackedCta } from '@/components/TrackedCta';
+import { GalleryCard } from '@/components/GalleryCard';
+import { materialsGallery } from '@/data/gallery';
 
 export const metadata: Metadata = {
   title: 'Дизайнерам и архитекторам',
@@ -77,6 +79,24 @@ export default function DesignersPage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section id="materials">
+        <Heading level={2} eyebrow="Материалы и возможности">
+          С чем работает фабрика
+        </Heading>
+        <Text tone="muted" className="mt-3 max-w-2xl">
+          Эмаль, натуральный шпон и шпон Fine-Line, фрезеровка, латунные вставки, зеркала,
+          натуральная кожа. Что из этого реализуемо в вашем проекте, подскажем при оценке.
+        </Text>
+        <div className="mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          {materialsGallery.map((item) => (
+            <GalleryCard key={item.slug} item={item} />
+          ))}
+        </div>
+        <p className="mt-8 text-sm text-stone">
+          Изображения — визуализации фабрики, показывают материалы и стиль, а не готовые объекты.
+        </p>
       </Section>
     </>
   );

@@ -5,7 +5,9 @@ import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { CoverImage } from '@/components/ui/CoverImage';
 import { ProjectCard } from '@/components/ProjectCard';
+import { GalleryCard } from '@/components/GalleryCard';
 import { projects } from '@/data/projects';
+import { wardrobeGallery } from '@/data/gallery';
 
 export const metadata: Metadata = {
   title: 'Шкафы и гардеробные на заказ в Санкт-Петербурге',
@@ -64,6 +66,27 @@ export default function WardrobesPage() {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
+      </Section>
+
+      <Section tone="milk" id="examples">
+        <Heading level={2} eyebrow="Примеры решений">
+          Идеи для шкафов и гардеробных
+        </Heading>
+        <Text tone="muted" className="mt-3 max-w-2xl">
+          Наполнение, фасады и отделку подбираем под ваше помещение. Эти изображения показывают,
+          какими могут быть шкафы и гардеробные ViVaKitchen.
+        </Text>
+        <div className="mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {wardrobeGallery.map((item) => (
+            <GalleryCard key={item.slug} item={item} />
+          ))}
+        </div>
+        <p className="mt-8 text-sm text-stone">
+          Изображения — визуализации фабрики, показывают стиль, а не готовые объекты.
+        </p>
+        <Button href="/#calc" className="mt-6">
+          Рассчитать шкаф или гардеробную
+        </Button>
       </Section>
     </>
   );

@@ -16,6 +16,13 @@ export function Production() {
             проект от разработки до установки: обсуждает задачу, готовит проект и расчёт,
             передаёт заказ на фабрику и организует доставку и монтаж.
           </Text>
+          {/* Facts below come from the factory's own "О компании" page. */}
+          <ul className="mt-6 grid gap-2 text-sm text-cream/80 sm:grid-cols-2">
+            <li>Производство в г. Жлобин, Беларусь</li>
+            <li>Фабрика на рынке больше 19 лет</li>
+            <li>Более 70 салонов в России и СНГ</li>
+            <li>Продукция соответствует ГОСТ 16371-93</li>
+          </ul>
         </div>
         <Video src="/video/production.mp4" poster="/video/production-poster.jpg" />
       </div>
