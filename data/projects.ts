@@ -37,6 +37,22 @@ export const projects: Project[] = [
   // cropped only, no colour correction). Descriptions stick to what is visible —
   // materials/year/district are TODO until the owner confirms them.
   {
+    slug: 'kuhnya-salon-seraya-klassika',
+    title: 'Классическая кухня с гранитной столешницей',
+    category: 'Кухня',
+    origin: SALON_ORIGIN,
+    cover: '/images/projects/kuhnya-salon-seraya-klassika/1.webp',
+    images: [
+      '/images/projects/kuhnya-salon-seraya-klassika/1.webp',
+      '/images/projects/kuhnya-salon-seraya-klassika/2.webp',
+      '/images/projects/kuhnya-salon-seraya-klassika/3.webp',
+      '/images/projects/kuhnya-salon-seraya-klassika/4.webp',
+    ],
+    description:
+      'Кухня, собранная в нашем салоне: светлые матовые фасады с классической рамкой и керамическими ручками-кнопками, высокие шкафы с карнизом, угловая рабочая зона с гранитной столешницей и фартуком, встроенные духовой шкаф и варочная панель. Спокойные серые стены и овальный стол завершают композицию.',
+    // TODO: уточнить у владельца материалы фасадов, район/город, год; согласие заказчика на публикацию фото
+  },
+  {
     slug: 'kuhnya-salon-svetlaya',
     title: 'Светлая кухня с островом',
     category: 'Кухня',
