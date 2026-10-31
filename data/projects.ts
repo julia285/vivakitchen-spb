@@ -30,6 +30,7 @@ export type Project = {
 };
 
 export const DEFAULT_ORIGIN = 'Проект фабрики ViVaKitchen';
+export const SALON_ORIGIN = 'Проект нашего салона';
 
 export const projects: Project[] = [
   // The salon's own finished kitchens (photos sent by the clients, shown as-is:
@@ -39,7 +40,7 @@ export const projects: Project[] = [
     slug: 'kuhnya-salon-svetlaya',
     title: 'Светлая кухня с островом',
     category: 'Кухня',
-    origin: 'Проект нашего салона',
+    origin: SALON_ORIGIN,
     cover: '/images/projects/kuhnya-salon-svetlaya/1.webp',
     images: [
       '/images/projects/kuhnya-salon-svetlaya/1.webp',
@@ -48,13 +49,12 @@ export const projects: Project[] = [
     description:
       'Кухня, собранная в нашем салоне, в квартире с лепниной и окном на красный кирпич. Рамочные фасады спокойного серо-шалфейного оттенка с латунными ручками, остров со стеллажом для вина, подсветка рабочей зоны и чёрная встроенная техника. Зелёные барные стулья и чёрно-белая плитка добавляют контраст.',
     // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
-    featured: true,
-  },
+      },
   {
     slug: 'kuhnya-salon-belaya',
     title: 'Белая классическая кухня с каменным рисунком',
     category: 'Кухня',
-    origin: 'Проект нашего салона',
+    origin: SALON_ORIGIN,
     cover: '/images/projects/kuhnya-salon-belaya/1.webp',
     images: [
       '/images/projects/kuhnya-salon-belaya/1.webp',
@@ -64,7 +64,35 @@ export const projects: Project[] = [
     description:
       'Кухня, собранная в нашем салоне: белые фасады с классической рамкой, фартук и столешница с выразительным мраморным рисунком, высокие шкафы до потолка и вытянутый полуостров вместо стола. Тёмный паркет оттеняет светлую мебель.',
     // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
-    featured: true,
+      },
+  {
+    slug: 'kuhnya-salon-bezhevaya',
+    title: 'Светлая кухня с шкафами до потолка',
+    category: 'Кухня',
+    origin: SALON_ORIGIN,
+    cover: '/images/projects/kuhnya-salon-bezhevaya/1.webp',
+    images: [
+      '/images/projects/kuhnya-salon-bezhevaya/1.webp',
+      '/images/projects/kuhnya-salon-bezhevaya/2.webp',
+      '/images/projects/kuhnya-salon-bezhevaya/3.webp',
+    ],
+    description:
+      'Кухня, собранная в нашем салоне: гладкие светло-бежевые фасады, высокие шкафы до потолка с нишей под холодильник и встроенной микроволновкой, ниша для хранения вина. Верхний ряд шкафов — со стеклянными вставками в светлой рамке. Чёрная мойка и тёмная столешница с рисунком создают спокойный контраст.',
+    // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
+  },
+  {
+    slug: 'tumba-vannaya-rebristaya',
+    title: 'Подвесная тумба в ванной с рифлёными фасадами',
+    category: 'Мебель для интерьера',
+    origin: SALON_ORIGIN,
+    cover: '/images/projects/tumba-vannaya-rebristaya/1.webp',
+    images: [
+      '/images/projects/tumba-vannaya-rebristaya/1.webp',
+      '/images/projects/tumba-vannaya-rebristaya/2.webp',
+    ],
+    description:
+      'Подвесная тумба под накладную раковину с двумя выдвижными ящиками. Рифлёный рельеф фасадов и светлая столешница хорошо сочетаются с плиткой с графичным рисунком.',
+    // TODO: уточнить у владельца материалы фасадов и столешницы
   },
   {
     slug: 'proekt-10275',
@@ -282,6 +310,8 @@ export const projects: Project[] = [
 export function projectOrigin(project: Project): string {
   return project.origin ?? DEFAULT_ORIGIN;
 }
+
+export const salonProjects = projects.filter((p) => p.origin === SALON_ORIGIN);
 
 export const featuredProjects = projects.filter((p) => p.featured);
 

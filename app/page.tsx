@@ -2,6 +2,7 @@ import { Hero } from '@/components/sections/Hero';
 import { PromoBanner } from '@/components/sections/PromoBanner';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 import { Categories } from '@/components/sections/Categories';
+import { SalonWorks } from '@/components/sections/SalonWorks';
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
 import { WhySalon } from '@/components/sections/WhySalon';
 import { Process } from '@/components/sections/Process';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <PromoBanner />
       <TrustStrip />
       <Categories />
+      <SalonWorks />
       <FeaturedProjects />
       <WhySalon />
       <Process />
