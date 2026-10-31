@@ -24,6 +24,9 @@ export function PromoBanner() {
               sizes="(min-width: 1320px) 750px, (min-width: 1024px) 60vw, 100vw"
               className="object-cover object-left"
             />
+            <span className="absolute bottom-2 left-2 rounded-sm bg-graphite/70 px-2 py-0.5 text-[11px] leading-tight text-cream">
+              Бренд ViVaKitchen
+            </span>
           </div>
 
           <div className="flex flex-col items-start gap-3">
