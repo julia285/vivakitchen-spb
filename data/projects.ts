@@ -32,6 +32,40 @@ export type Project = {
 export const DEFAULT_ORIGIN = 'Проект фабрики ViVaKitchen';
 
 export const projects: Project[] = [
+  // The salon's own finished kitchens (photos sent by the clients, shown as-is:
+  // cropped only, no colour correction). Descriptions stick to what is visible —
+  // materials/year/district are TODO until the owner confirms them.
+  {
+    slug: 'kuhnya-salon-svetlaya',
+    title: 'Светлая кухня с островом',
+    category: 'Кухня',
+    origin: 'Проект нашего салона',
+    cover: '/images/projects/kuhnya-salon-svetlaya/1.webp',
+    images: [
+      '/images/projects/kuhnya-salon-svetlaya/1.webp',
+      '/images/projects/kuhnya-salon-svetlaya/2.webp',
+    ],
+    description:
+      'Кухня, собранная в нашем салоне, в квартире с лепниной и окном на красный кирпич. Рамочные фасады спокойного серо-шалфейного оттенка с латунными ручками, остров со стеллажом для вина, подсветка рабочей зоны и чёрная встроенная техника. Зелёные барные стулья и чёрно-белая плитка добавляют контраст.',
+    // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
+    featured: true,
+  },
+  {
+    slug: 'kuhnya-salon-belaya',
+    title: 'Белая классическая кухня с каменным рисунком',
+    category: 'Кухня',
+    origin: 'Проект нашего салона',
+    cover: '/images/projects/kuhnya-salon-belaya/1.webp',
+    images: [
+      '/images/projects/kuhnya-salon-belaya/1.webp',
+      '/images/projects/kuhnya-salon-belaya/2.webp',
+      '/images/projects/kuhnya-salon-belaya/3.webp',
+    ],
+    description:
+      'Кухня, собранная в нашем салоне: белые фасады с классической рамкой, фартук и столешница с выразительным мраморным рисунком, высокие шкафы до потолка и вытянутый полуостров вместо стола. Тёмный паркет оттеняет светлую мебель.',
+    // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
+    featured: true,
+  },
   {
     slug: 'proekt-10275',
     title: 'Кухня со светлыми фасадами и латунным орнаментом',
