@@ -31,6 +31,8 @@ export type Project = {
 
 export const DEFAULT_ORIGIN = 'Проект фабрики ViVaKitchen';
 export const SALON_ORIGIN = 'Проект нашего салона';
+/** Entries of the factory's own portfolio (viva-kitchen.com/realizovannyye-proyekty), kept under the factory's real project names. */
+export const FACTORY_PORTFOLIO_ORIGIN = 'Реализованный проект ViVaKitchen';
 
 export const projects: Project[] = [
   // The salon's own finished kitchens (photos sent by the clients, shown as-is:
@@ -112,7 +114,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-10275',
-    title: 'Кухня со светлыми фасадами и латунным орнаментом',
+    title: 'Проект 10275',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Кухня',
     cover: '/images/projects/proekt-10275/1.webp',
     images: [
@@ -127,7 +130,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-9002',
-    title: 'Кухня в едином стиле с гостиной и спальней',
+    title: 'Проект 9002',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Кухня',
     cover: '/images/projects/proekt-9002/1.webp',
     images: [
@@ -142,7 +146,7 @@ export const projects: Project[] = [
   {
     slug: 'proekt-artdom-kuhnya',
     origin: 'Выставочная экспозиция ARTDOM',
-    title: 'Кухня, представленная на выставке ARTDOM',
+    title: 'Проект ARTDOM 2026: кухня',
     category: 'Кухня',
     cover: '/images/projects/proekt-artdom-kuhnya/1.webp',
     images: [
@@ -157,7 +161,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-9997-kuhnya',
-    title: 'Кухня в комплексном проекте квартиры',
+    title: 'Проект 9997: кухня',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Кухня',
     cover: '/images/projects/proekt-9997-kuhnya/1.webp',
     images: [
@@ -172,7 +177,7 @@ export const projects: Project[] = [
   {
     slug: 'proekt-artdom-shkaf',
     origin: 'Выставочная экспозиция ARTDOM',
-    title: 'Дизайнерский шкаф, представленный на выставке ARTDOM',
+    title: 'Проект ARTDOM 2026: шкаф',
     category: 'Шкаф',
     cover: '/images/projects/proekt-artdom-shkaf/1.webp',
     images: [
@@ -187,7 +192,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-9997-shkaf',
-    title: 'Встроенный шкаф в детской комнате',
+    title: 'Проект 9997: шкаф в детской',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Шкаф',
     cover: '/images/projects/proekt-9997-shkaf/1.webp',
     images: [
@@ -199,7 +205,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-9997-garderobnaya',
-    title: 'Гардеробная зона с туалетным столиком',
+    title: 'Проект 9997: гардеробная зона',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Гардеробная',
     cover: '/images/projects/proekt-9997-garderobnaya/1.webp',
     images: ['/images/projects/proekt-9997-garderobnaya/1.webp'],
@@ -208,7 +215,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'proekt-9284',
-    title: 'Гостиная с витринами и декоративной подсветкой',
+    title: 'Проект 9284',
+    origin: FACTORY_PORTFOLIO_ORIGIN,
     category: 'Мебель для интерьера',
     cover: '/images/projects/proekt-9284/1.webp',
     images: [
