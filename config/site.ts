@@ -11,7 +11,13 @@ export const siteConfig = {
   // --- Brand ---
   brandName: 'ViVaKitchen Санкт-Петербург',
   brandShortName: 'ViVaKitchen',
-  legalName: '', // TODO: уточнить у владельца (ИП/ООО, точное юр. название)
+  // Operator of personal data (the business that owns the salon). Filled in
+  // from the company card; while empty the privacy policy names the salon by
+  // brand and address instead of leaving visible placeholders.
+  legalName: '', // e.g. 'ИП Иванова Мария Петровна' / 'ООО «Название»'
+  legalInn: '',
+  legalOgrn: '', // ОГРН or ОГРНИП
+  legalAddress: '', // registered (legal) address, if different from the salon
 
   // Logo file dimensions are baked in so <Image> can size it without
   // layout shift — update both if the logo file changes proportions.

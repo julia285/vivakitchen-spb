@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  async redirects() {
+    // The policy used to live at /privacy; ad platforms and forms expect /privacy-policy.
+    return [{ source: '/privacy', destination: '/privacy-policy', permanent: true }];
+  },
   async headers() {
     return [
       {

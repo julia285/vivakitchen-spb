@@ -172,7 +172,7 @@ export function LeadForm() {
               className="mt-0.5 h-4 w-4 rounded border-line text-accent focus:ring-accent"
             />
             Согласен(на) на обработку персональных данных в соответствии с{' '}
-            <a href="/privacy" className="underline hover:text-accent">
+            <a href="/privacy-policy" className="underline hover:text-accent">
               политикой конфиденциальности
             </a>
             .

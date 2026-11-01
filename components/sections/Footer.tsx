@@ -55,7 +55,7 @@ export function Footer() {
               VK
             </a>
           ) : null}
-          <Link href="/privacy" className="text-graphite/85 hover:text-accent">
+          <Link href="/privacy-policy" className="text-graphite/85 hover:text-accent">
             Политика конфиденциальности
           </Link>
         </div>

@@ -9,7 +9,7 @@ Production-ready MVP сайта мебельного салона (официа�
   этапы заказа, блок для дизайнеров, производство/видео, форма расчёта,
   контакты/карта.
 - Разделы: `/projects`, `/projects/[slug]`, `/kitchens`, `/wardrobes`,
-  `/designers`, `/about`, `/contacts`, `/privacy`.
+  `/designers`, `/about`, `/contacts`, `/privacy-policy` (старый `/privacy` редиректит на неё).
 - Форма «Рассчитать проект» с загрузкой файла, валидацией обязательных
   полей, чекбоксом согласия на обработку персональных данных.
 - CRM-абстракция (`services/crm.ts`) с mock-режимом — заявки не теряются,
@@ -93,7 +93,7 @@ serverless/статик-экспорт) — загрузка файлов в `/a
 | Заменить фото проекта/категории | заменить файл в `public/images/projects/<slug>/` или `public/images/categories/`, путь в `data/projects.ts`/`data/categories.ts` менять не нужно, если имя файла то же |
 | Заменить оставшийся placeholder (салон, владелец) | найти `<PlaceholderImage label="...">` в нужном компоненте/странице (сейчас — только `app/about/page.tsx`) и заменить на `<CoverImage src="/images/..." alt="..." />` (см. `components/ui/CoverImage.tsx`), положив файл в `public/images/...` |
 | Видео о производстве | `components/sections/Production.tsx` → `<Video src="/video/production.mp4" poster="..." />` (сейчас видео не передано — показывается TODO-заглушка, ролик не грузится, пока не задан src) |
-| Политика конфиденциальности | [`app/privacy/page.tsx`](app/privacy/page.tsx) — черновик, нужна проверка юристом |
+| Политика конфиденциальности | [`app/privacy-policy/page.tsx`](app/privacy-policy/page.tsx) — черновик, нужна проверка юристом |
 
 ## 6. Как подключить Яндекс Метрику
 
@@ -192,7 +192,7 @@ S3-совместимое хранилище (Яндекс Object Storage, Selec
 - Финальное юридическое название бренда и точная формулировка
   «официальный салон/представитель» (сейчас — `config/site.ts →
   officialPartnerLine`, редактируется в одном месте).
-- Юридическая проверка `/privacy` перед запуском (требования 152-ФЗ).
+- Юридическая проверка `/privacy-policy` и реквизиты оператора в `config/site.ts` (legalName, legalInn, legalOgrn, legalAddress) перед запуском (требования 152-ФЗ).
 - Реальные отзывы — компонент `components/sections/Reviews.tsx` готов, но
   не подключён на главной (вызывается с пустым массивом), пока нет
   реальных отзывов — специально, чтобы не показывать fake reviews.
