@@ -2,10 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // No external image domains configured yet — all imagery is local
-    // placeholders or files added to /public/images. Add real CDN/hosting
-    // domains here once the factory/agency photo pipeline is set up.
-    formats: ['image/avif', 'image/webp'],
+    // WebP only: AVIF is noticeably smaller but encoding it on first request
+    // is CPU/memory-hungry, and on a 1 GB hosting plan a burst of first visits
+    // (every phone asks for AVIF) can exhaust memory and make the app restart.
+    formats: ['image/webp'],
+    // Fewer distinct widths = fewer variants to generate and cache. Our
+    // sources are at most 1600px, and most cards are rendered at 260-700px.
+    deviceSizes: [640, 828, 1200, 1600],
+    imageSizes: [260, 520],
+    // Optimised images never change under the same URL (files in /public are
+    // replaced under new names), so keep them for a year.
+    minimumCacheTTL: 31536000,
   },
 };
 
