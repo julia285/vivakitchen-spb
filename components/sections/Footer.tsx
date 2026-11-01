@@ -65,6 +65,16 @@ export function Footer() {
         <p className="text-xs text-stone">
           © {new Date().getFullYear()} {siteConfig.brandShortName}. {siteConfig.officialPartnerLine}.
         </p>
+        {siteConfig.legalName ? (
+          // Seller details every Russian shop site is expected to show.
+          <p className="mt-1 text-xs text-stone">
+            {siteConfig.legalName}
+            {siteConfig.legalInn ? `, ИНН ${siteConfig.legalInn}` : ''}
+            {siteConfig.legalOgrn
+              ? `, ${siteConfig.legalName.startsWith('ИП') ? 'ОГРНИП' : 'ОГРН'} ${siteConfig.legalOgrn}`
+              : ''}
+          </p>
+        ) : null}
       </Container>
     </footer>
   );

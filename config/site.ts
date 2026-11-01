@@ -14,10 +14,13 @@ export const siteConfig = {
   // Operator of personal data (the business that owns the salon). Filled in
   // from the company card; while empty the privacy policy names the salon by
   // brand and address instead of leaving visible placeholders.
-  legalName: '', // e.g. 'ИП Иванова Мария Петровна' / 'ООО «Название»'
-  legalInn: '',
-  legalOgrn: '', // ОГРН or ОГРНИП
-  legalAddress: '', // registered (legal) address, if different from the salon
+  // Taken from the company card the owner provided. Only what the law asks a
+  // seller to publish (name, ИНН, ОГРНИП) — not the registered address (it is
+  // a private flat), bank details or personal phone.
+  legalName: 'ИП Погорелова Лариса Георгиевна',
+  legalInn: '330301852976',
+  legalOgrn: '325784700390696', // ОГРНИП
+  legalAddress: '', // leave empty to use the salon address in documents
 
   // Logo file dimensions are baked in so <Image> can size it without
   // layout shift — update both if the logo file changes proportions.
@@ -92,7 +95,7 @@ export const siteConfig = {
 
   // --- Analytics / integrations (read from env, exposed here for convenience) ---
   yandexMetrikaId: process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID ?? '',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://vivakitchen-spb.ru',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://vivakitchenspb.ru',
 } as const;
 
 export type SiteConfig = typeof siteConfig;

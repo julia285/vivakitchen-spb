@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
   const operatorName = siteConfig.legalName || siteConfig.brandName;
   const details = [
     siteConfig.legalInn ? `ИНН ${siteConfig.legalInn}` : null,
-    siteConfig.legalOgrn ? `ОГРН/ОГРНИП ${siteConfig.legalOgrn}` : null,
+    siteConfig.legalOgrn ? `${siteConfig.legalName.startsWith('ИП') ? 'ОГРНИП' : 'ОГРН'} ${siteConfig.legalOgrn}` : null,
   ].filter(Boolean);
 
   const sections: { title: string; body: string[] }[] = [
