@@ -5,9 +5,8 @@ import { trackEvent } from '@/lib/analytics';
 import clsx from '@/lib/clsx';
 
 export function PhoneLink({ className }: { className?: string }) {
-  if (!siteConfig.phone) {
-    return <span className={clsx('text-stone', className)}>Телефон: TODO уточнить</span>;
-  }
+  // No placeholder text for visitors: with no phone set the link just isn't shown.
+  if (!siteConfig.phone) return null;
 
   return (
     <a

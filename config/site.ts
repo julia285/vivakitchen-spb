@@ -29,8 +29,11 @@ export const siteConfig = {
   officialPartnerLine: 'Дилер, представитель ТМ ViVaKitchen в Санкт-Петербурге',
 
   // --- Contact ---
-  phone: '+7 (921) 420-66-78',
-  phoneHref: 'tel:+79214206678',
+  // Phone is intentionally empty for now (the owner is deciding on a separate
+  // business SIM). Every phone link/row disappears while this is ''; to bring
+  // it back, set both values, e.g. '+7 (XXX) XXX-XX-XX' / 'tel:+7XXXXXXXXXX'.
+  phone: '',
+  phoneHref: '',
   email: 'vivakitchenspb@yandex.ru',
   workingHours: 'Пн–Вс 10:00–20:00',
 
@@ -74,7 +77,7 @@ export const siteConfig = {
     enabled: true as boolean,
     image: '/images/promo/new-year-banner.webp',
     alt: 'Новогодние скидки на кухни и шкафы ViVaKitchen. Встречайте Новый год в доме, о котором мечтали!',
-    note: 'Условия акции уточняйте в салоне или по телефону',
+    note: 'Условия акции уточняйте в салоне или оставьте заявку на сайте',
   },
 
   // --- Social ---
