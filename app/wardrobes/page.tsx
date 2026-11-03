@@ -12,7 +12,7 @@ import { wardrobeGallery } from '@/data/gallery';
 export const metadata: Metadata = {
   title: 'Шкафы и гардеробные на заказ в Санкт-Петербурге',
   description:
-    'Встроенные и корпусные шкафы, гардеробные комнаты по индивидуальному проекту. Бесплатное проектирование и расчёт.',
+    'Встроенные и корпусные шкафы, гардеробные комнаты по индивидуальному проекту. Расчёт по готовому проекту или составление проекта в салоне.',
   alternates: { canonical: '/wardrobes' },
 };
 
@@ -33,7 +33,7 @@ export default function WardrobesPage() {
               конкретную нишу или помещение — с учётом реальной эргономики хранения.
             </Text>
             <Button href="/#calc" size="lg" className="mt-7">
-              Рассчитать проект
+              Обсудить проект
             </Button>
           </div>
           <CoverImage
@@ -85,7 +85,7 @@ export default function WardrobesPage() {
           Изображения — визуализации фабрики, показывают стиль, а не готовые объекты.
         </p>
         <Button href="/#calc" className="mt-6">
-          Рассчитать шкаф или гардеробную
+          Обсудить шкаф или гардеробную
         </Button>
       </Section>
     </>

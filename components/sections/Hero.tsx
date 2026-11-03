@@ -21,14 +21,14 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="/#calc" size="lg">
-              Рассчитать проект
+              Обсудить проект
             </Button>
             <Button href="/projects" size="lg" variant="ghost">
               Посмотреть проекты
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-cream/70">Проект и предварительный расчёт — бесплатно.</p>
+          <p className="mt-6 text-sm text-cream/70">Есть дизайн-проект — рассчитаем. Нет проекта — составим вместе в салоне.</p>
         </div>
 
         <CoverImage

@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </div>
 
       <Button href="/#calc" size="lg" className="mt-10">
-        Рассчитать похожий проект
+        Обсудить похожий проект
       </Button>
     </Section>
   );

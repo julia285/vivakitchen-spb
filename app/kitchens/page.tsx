@@ -12,7 +12,7 @@ import { collections, collectionStyleLabels, CollectionStyle } from '@/data/coll
 export const metadata: Metadata = {
   title: 'Кухни на заказ в Санкт-Петербурге',
   description:
-    'Кухни по индивидуальному проекту от фабрики ViVaKitchen. Бесплатное проектирование и предварительный расчёт.',
+    'Кухни по индивидуальному проекту от фабрики ViVaKitchen. Расчёт по готовому проекту или составление проекта в салоне.',
   alternates: { canonical: '/kitchens' },
 };
 
@@ -36,7 +36,7 @@ export default function KitchensPage() {
               проекта — в нашем салоне в Санкт-Петербурге.
             </Text>
             <Button href="/#calc" size="lg" className="mt-7">
-              Рассчитать проект
+              Обсудить проект
             </Button>
           </div>
           <CoverImage

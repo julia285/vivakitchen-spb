@@ -6,11 +6,26 @@
 
 export type LeadCategory = 'kitchen' | 'wardrobe' | 'dressing-room' | 'multi-room' | 'other';
 
+// Two ways in: the client already has a design project (we price it in the
+// chosen model and send the estimate) or there is no project yet (we invite
+// them to the salon to make one together — no estimate before that).
+export type LeadScenario = 'has-project' | 'need-project';
+
+export const scenarioLabels: Record<LeadScenario, string> = {
+  'has-project': 'есть дизайн-проект — считаем в выбранной модели',
+  'need-project': 'проекта нет — приглашаем в салон',
+};
+
 export type LeadPayload = {
   name: string;
   phone: string;
   email?: string;
   category?: LeadCategory;
+  scenario?: LeadScenario;
+  /** has-project: the facade model/collection the client picked, if any */
+  model?: string;
+  /** need-project: when it suits the client to visit the salon */
+  visitTime?: string;
   comment?: string;
   fileUrl?: string;
   pageUrl: string;
@@ -105,7 +120,10 @@ export function buildCardDescription(payload: LeadPayload): string {
     `Имя: ${payload.name}`,
     `Телефон: ${payload.phone}`,
     payload.email ? `Email: ${payload.email}` : null,
+    payload.scenario ? `Сценарий: ${scenarioLabels[payload.scenario]}` : null,
     payload.category ? `Категория: ${categoryLabels[payload.category]}` : null,
+    payload.model ? `Модель: ${payload.model}` : null,
+    payload.visitTime ? `Когда удобно приехать: ${payload.visitTime}` : null,
     payload.comment ? `Комментарий: ${payload.comment}` : null,
     payload.fileUrl ? `Файл: ${absoluteFileUrl(payload)}` : null,
     `Страница: ${payload.pageUrl}`,

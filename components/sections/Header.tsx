@@ -92,7 +92,7 @@ export function Header() {
 
             <div className="flex items-center gap-3">
               <Button href="/#calc" size="md" className="hidden md:inline-flex">
-                Рассчитать проект
+                Обсудить проект
               </Button>
               <button
                 type="button"
@@ -151,7 +151,7 @@ export function Header() {
               </Link>
             ))}
             <Button href="/#calc" size="lg" className="mt-4 w-full">
-              Рассчитать проект
+              Обсудить проект
             </Button>
           </Container>
         </div>

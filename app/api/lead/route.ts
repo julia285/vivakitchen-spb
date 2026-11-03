@@ -36,6 +36,9 @@ export async function POST(req: NextRequest) {
     phone: clip(payload.phone, 40),
     email: clip(payload.email, 120) || undefined,
     category: payload.category,
+    scenario: payload.scenario === 'has-project' || payload.scenario === 'need-project' ? payload.scenario : undefined,
+    model: clip(payload.model, 100) || undefined,
+    visitTime: clip(payload.visitTime, 100) || undefined,
     comment: clip(payload.comment, 2000) || undefined,
     // Only our own uploads are linked; anything else is dropped.
     fileUrl: typeof payload.fileUrl === 'string' && /^\/uploads\/[\w.-]+$/.test(payload.fileUrl) ? payload.fileUrl : undefined,

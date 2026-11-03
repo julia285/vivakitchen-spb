@@ -6,7 +6,7 @@ import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { FormField, inputClassName, selectClassName, textareaClassName } from '@/components/ui/FormField';
-import { submitLead, LeadCategory } from '@/services/crm';
+import { submitLead, LeadCategory, LeadScenario } from '@/services/crm';
 import { getStoredUtm } from '@/lib/utm';
 import { trackEvent } from '@/lib/analytics';
 
@@ -20,9 +20,31 @@ const categoryOptions: { value: LeadCategory; label: string }[] = [
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
+// The two ways in. The salon prices a ready design project remotely, but a
+// project from scratch starts with a visit — so the form asks first.
+const scenarioOptions: { value: LeadScenario; title: string; text: string }[] = [
+  {
+    value: 'has-project',
+    title: 'У меня есть дизайн-проект',
+    text: 'Рассчитаем стоимость в выбранной вами модели и пришлём расчёт.',
+  },
+  {
+    value: 'need-project',
+    title: 'Проекта пока нет',
+    text: 'Приезжайте в салон: познакомимся, обсудим задачу и составим проект вместе.',
+  },
+];
+
+const successText: Record<LeadScenario, string> = {
+  'has-project': 'Мы получили ваш проект. Посмотрим его и свяжемся, чтобы уточнить модель и прислать расчёт.',
+  'need-project': 'Свяжемся с вами, чтобы договориться о встрече в салоне. Будем рады познакомиться.',
+};
+
 export function LeadForm() {
   const [status, setStatus] = useState<Status>('idle');
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; consent?: string }>({});
+  const [scenario, setScenario] = useState<LeadScenario | ''>('');
+  const [sentScenario, setSentScenario] = useState<LeadScenario | null>(null);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; scenario?: string; consent?: string }>({});
   const [errorMessage, setErrorMessage] = useState('');
   const [fileName, setFileName] = useState('');
   const hasTrackedOpen = useRef(false);
@@ -45,6 +67,7 @@ export function LeadForm() {
     const nextErrors: typeof errors = {};
     if (!name) nextErrors.name = 'Укажите имя';
     if (!phone) nextErrors.phone = 'Укажите телефон';
+    if (!scenario) nextErrors.scenario = 'Выберите, что у вас есть';
     if (!consent) nextErrors.consent = 'Нужно согласие на обработку персональных данных';
 
     setErrors(nextErrors);
@@ -74,6 +97,9 @@ export function LeadForm() {
       phone,
       email: String(data.get('email') || '') || undefined,
       category: (data.get('category') as LeadCategory) || undefined,
+      scenario: scenario || undefined,
+      model: String(data.get('model') || '') || undefined,
+      visitTime: String(data.get('visitTime') || '') || undefined,
       comment: String(data.get('comment') || '') || undefined,
       fileUrl,
       pageUrl: window.location.href,
@@ -81,9 +107,12 @@ export function LeadForm() {
     });
 
     if (result.ok) {
+      setSentScenario(scenario || null);
       setStatus('success');
-      trackEvent('lead_form_submit');
+      trackEvent('lead_form_submit', { scenario: scenario || 'unknown' });
       form.reset();
+      setScenario('');
+      setFileName('');
     } else {
       setStatus('error');
       setErrorMessage(result.error);
@@ -96,7 +125,9 @@ export function LeadForm() {
         <div className="mx-auto max-w-xl rounded border border-line bg-white p-8 text-center">
           <Heading level={3}>Спасибо</Heading>
           <Text tone="muted" className="mt-3">
-            Мы получили информацию о вашем проекте и свяжемся с вами, чтобы уточнить детали.
+            {sentScenario
+              ? successText[sentScenario]
+              : 'Мы получили информацию о вашем проекте и свяжемся с вами, чтобы уточнить детали.'}
           </Text>
         </div>
       </Section>
@@ -106,15 +137,49 @@ export function LeadForm() {
   return (
     <Section id="calc">
       <div className="mx-auto max-w-2xl">
-        <Heading level={2} eyebrow="Расчёт" className="text-center">
-          Получить предварительный расчёт
+        <Heading level={2} eyebrow="Обсудить проект" className="text-center">
+          Расскажите о вашем проекте
         </Heading>
         <Text tone="muted" className="mx-auto mt-4 max-w-lg text-center">
-          Если у вас уже есть размеры, план помещения или дизайн-проект — прикрепите его. Это
-          поможет быстрее разобраться в задаче.
+          Есть готовый дизайн-проект — рассчитаем его в выбранной модели. Проекта нет — приглашаем
+          в салон: вместе составим проект и назовём стоимость.
         </Text>
 
         <form onSubmit={handleSubmit} noValidate className="mt-8 flex flex-col gap-5 rounded border border-line bg-white p-6 md:p-8">
+          <fieldset>
+            <legend className="mb-2 text-sm font-medium text-graphite">
+              Что у вас есть? <span className="text-red-700">*</span>
+            </legend>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {scenarioOptions.map((opt) => (
+                <label
+                  key={opt.value}
+                  className={`flex cursor-pointer flex-col gap-1 rounded border p-4 transition-colors focus-within:ring-2 focus-within:ring-accent ${
+                    scenario === opt.value ? 'border-accent bg-milk' : 'border-line hover:border-graphite/40'
+                  }`}
+                >
+                  <span className="flex items-center gap-2 text-sm font-semibold text-graphite">
+                    <input
+                      type="radio"
+                      name="scenario"
+                      value={opt.value}
+                      checked={scenario === opt.value}
+                      onChange={() => setScenario(opt.value)}
+                      className="h-4 w-4 text-accent focus:ring-accent"
+                    />
+                    {opt.title}
+                  </span>
+                  <span className="pl-6 text-xs text-stone">{opt.text}</span>
+                </label>
+              ))}
+            </div>
+            {errors.scenario ? (
+              <p role="alert" className="mt-2 text-xs text-red-700">
+                {errors.scenario}
+              </p>
+            ) : null}
+          </fieldset>
+
           <div className="grid gap-5 sm:grid-cols-2">
             <FormField label="Имя" htmlFor="name" required error={errors.name}>
               <input id="name" name="name" type="text" autoComplete="name" className={inputClassName} />
@@ -141,11 +206,36 @@ export function LeadForm() {
             </select>
           </FormField>
 
+          {scenario === 'has-project' ? (
+            <FormField label="Модель или коллекция фасадов, если уже выбрали" htmlFor="model">
+              <input id="model" name="model" type="text" placeholder="Например, Egna" className={inputClassName} />
+            </FormField>
+          ) : null}
+
+          {scenario === 'need-project' ? (
+            <FormField label="Когда удобно приехать в салон" htmlFor="visitTime">
+              <input
+                id="visitTime"
+                name="visitTime"
+                type="text"
+                placeholder="Например, будни после 15:00 или суббота"
+                className={inputClassName}
+              />
+            </FormField>
+          ) : null}
+
           <FormField label="Комментарий" htmlFor="comment">
             <textarea id="comment" name="comment" className={textareaClassName} />
           </FormField>
 
-          <FormField label="Файл — размеры, план или проект (PDF, JPG, PNG)" htmlFor="file">
+          <FormField
+            label={
+              scenario === 'need-project'
+                ? 'Размеры или план помещения, если есть (PDF, JPG, PNG) — посмотрим вместе на встрече'
+                : 'Файл проекта (PDF, JPG, PNG)'
+            }
+            htmlFor="file"
+          >
             <div className="flex flex-wrap items-center gap-3">
               <label
                 htmlFor="file"
@@ -190,7 +280,7 @@ export function LeadForm() {
           ) : null}
 
           <Button type="submit" size="lg" disabled={status === 'submitting'} className="mt-1">
-            {status === 'submitting' ? 'Отправляем…' : 'Отправить на расчёт'}
+            {status === 'submitting' ? 'Отправляем…' : 'Отправить заявку'}
           </Button>
         </form>
       </div>
