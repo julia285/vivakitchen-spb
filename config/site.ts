@@ -90,8 +90,22 @@ export const siteConfig = {
   },
 
   // --- Social ---
-  instagram: 'https://www.instagram.com/vivakitchenspb',
+  // Instagram was removed on purpose: Meta is recognised as extremist in
+  // Russia, and the salon won't advertise on or link to it.
   vk: 'https://vk.ru/sputnik_st',
+  // Public Telegram account/channel of the salon, e.g. 'https://t.me/vivakitchenspb'.
+  // (This is NOT the lead-notification bot — that one only sends to the owner.)
+  telegram: '',
+  // WhatsApp chat link, e.g. 'https://wa.me/79XXXXXXXXX' — the number is visible in
+  // the link, so fill it only with the business number the owner chooses to publish.
+  whatsapp: '',
+  get socialLinks() {
+    return [
+      { label: 'VK', href: this.vk },
+      { label: 'Telegram', href: this.telegram },
+      { label: 'WhatsApp', href: this.whatsapp },
+    ].filter((link) => link.href);
+  },
 
   // --- Analytics / integrations (read from env, exposed here for convenience) ---
   yandexMetrikaId: process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID ?? '',

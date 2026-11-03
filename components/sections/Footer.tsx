@@ -45,16 +45,17 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 text-sm">
-          {siteConfig.instagram ? (
-            <a href={siteConfig.instagram} target="_blank" rel="noreferrer" className="text-graphite/85 hover:text-accent">
-              Instagram
+          {siteConfig.socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-graphite/85 hover:text-accent"
+            >
+              {link.label}
             </a>
-          ) : null}
-          {siteConfig.vk ? (
-            <a href={siteConfig.vk} target="_blank" rel="noreferrer" className="text-graphite/85 hover:text-accent">
-              VK
-            </a>
-          ) : null}
+          ))}
           <Link href="/privacy-policy" className="text-graphite/85 hover:text-accent">
             Политика конфиденциальности
           </Link>

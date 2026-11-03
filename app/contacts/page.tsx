@@ -43,20 +43,21 @@ export default function ContactsPage() {
             </Text>
           </div>
 
-          {(siteConfig.instagram || siteConfig.vk) && (
+          {siteConfig.socialLinks.length > 0 && (
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone">Соцсети</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-stone">Соцсети и мессенджеры</h2>
               <div className="mt-2 flex flex-col gap-1.5 text-base">
-                {siteConfig.instagram ? (
-                  <a href={siteConfig.instagram} target="_blank" rel="noreferrer" className="text-graphite/85 hover:text-accent">
-                    Instagram
+                {siteConfig.socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-graphite/85 hover:text-accent"
+                  >
+                    {link.label}
                   </a>
-                ) : null}
-                {siteConfig.vk ? (
-                  <a href={siteConfig.vk} target="_blank" rel="noreferrer" className="text-graphite/85 hover:text-accent">
-                    VK
-                  </a>
-                ) : null}
+                ))}
               </div>
             </div>
           )}
