@@ -27,10 +27,14 @@ export type Project = {
   origin?: string;
   featured?: boolean;
   isPlaceholder?: boolean;
+  /** Show the "Бренд ViVaKitchen" credit on the photos; off for the salon's own exposition. */
+  credit?: boolean;
 };
 
 export const DEFAULT_ORIGIN = 'Проект фабрики ViVaKitchen';
 export const SALON_ORIGIN = 'Проект нашего салона';
+/** Kitchens on display in the salon itself (bought and installed by the salon). */
+export const SALON_EXPO_ORIGIN = 'Образец в нашем салоне';
 /** Entries of the factory's own portfolio (viva-kitchen.com/realizovannyye-proyekty), kept under the factory's real project names. */
 export const FACTORY_PORTFOLIO_ORIGIN = 'Реализованный проект ViVaKitchen';
 
@@ -112,6 +116,44 @@ export const projects: Project[] = [
     description:
       'Подвесная тумба под накладную раковину с двумя выдвижными ящиками. Рифлёный рельеф фасадов и светлая столешница хорошо сочетаются с плиткой с графичным рисунком.',
     // TODO: уточнить у владельца материалы фасадов и столешницы
+  },
+  // Exposition kitchens of the salon (photos from the salon's own shoot). They carry no
+  // brand credit: not every piece on display has to be a ViVaKitchen product.
+  {
+    slug: 'obrazec-salon-klassika-rebristye-fasady',
+    title: 'Выставочная кухня: классика и рифлёные фасады',
+    category: 'Кухня',
+    origin: SALON_EXPO_ORIGIN,
+    credit: false,
+    cover: '/images/salon/expo-front.webp',
+    images: ['/images/salon/expo-front.webp'],
+    description:
+      'Образец в нашем салоне: светлые матовые фасады с классической рамкой и квадратными латунными ручками, высокие шкафы с карнизом, верхние шкафы с рифлёными металлическими фасадами и латунными вставками, подсветка рабочей зоны, светлый фартук и столешница, встроенный духовой шкаф. Рядом — стенд с образцами декоров.',
+    // TODO: уточнить у владельца коллекцию и материалы фасадов
+  },
+  {
+    slug: 'obrazec-salon-grafit-shpon',
+    title: 'Выставочная кухня в графитовом цвете со шпоном',
+    category: 'Кухня',
+    origin: SALON_EXPO_ORIGIN,
+    credit: false,
+    cover: '/images/salon/expo-dark-wood.webp',
+    images: ['/images/salon/expo-dark-wood.webp'],
+    description:
+      'Образец в нашем салоне: графитовые матовые фасады без ручек, верхние шкафы с древесным рисунком, уложенным по диагонали, и витрина в тёмной раме со стеклом. Тёмная столешница, встроенные духовой шкаф и микроволновая печь. Рядом — стенд с образцами цветов фасадов.',
+    // TODO: уточнить у владельца коллекцию и материалы фасадов
+  },
+  {
+    slug: 'obrazec-salon-belaya-shpon',
+    title: 'Выставочная кухня: белые фасады и шпон',
+    category: 'Кухня',
+    origin: SALON_EXPO_ORIGIN,
+    credit: false,
+    cover: '/images/salon/expo-two-kitchens.webp',
+    images: ['/images/salon/expo-two-kitchens.webp'],
+    description:
+      'Образец в нашем салоне: белые фасады с рамкой и молдингом внизу, верхний ряд шкафов — белый, а под ним — шкафы с вертикальным древесным рисунком, светлый фартук и столешница, подсветка и чёрный кран. Слева видна соседняя выставочная кухня в графитовом цвете.',
+    // TODO: уточнить у владельца коллекцию и материалы фасадов
   },
   {
     slug: 'proekt-10275',
@@ -336,7 +378,9 @@ export function projectOrigin(project: Project): string {
   return project.origin ?? DEFAULT_ORIGIN;
 }
 
-export const salonProjects = projects.filter((p) => p.origin === SALON_ORIGIN);
+export const salonProjects = projects.filter(
+  (p) => p.origin === SALON_ORIGIN || p.origin === SALON_EXPO_ORIGIN,
+);
 
 export const featuredProjects = projects.filter((p) => p.featured);
 

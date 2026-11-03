@@ -12,11 +12,9 @@ import { salonProjects } from '@/data/projects';
  * and the caption says where they come from instead of hiding it.
  */
 export function SalonWorks() {
-  const slides = salonProjects.flatMap((project) =>
-    project.images.map((src, i) => ({ project, src, key: `${project.slug}-${i}` })),
-  );
-
-  if (slides.length === 0) return null;
+  // One frame per project: several shots of the same kitchen from one angle
+  // look like repeats in a carousel; the rest are on the project page.
+  if (salonProjects.length === 0) return null;
 
   return (
     <Section tone="cream">
@@ -31,25 +29,26 @@ export function SalonWorks() {
 
       <div className="mt-8">
         <ScrollRow label="Работы нашего салона">
-          {slides.map(({ project, src, key }) => (
+          {salonProjects.map((project) => (
             <Link
-              key={key}
+              key={project.slug}
               href={`/projects/${project.slug}`}
               className="block w-[220px] shrink-0 snap-start sm:w-[260px]"
               aria-label={project.title}
             >
               <CoverImage
-                src={src}
+                src={project.cover}
                 alt={project.title}
                 ratio="aspect-[4/3]"
                 sizes="260px"
+                credit={project.credit !== false}
               />
             </Link>
           ))}
         </ScrollRow>
       </div>
 
-      <p className="mt-4 text-sm text-stone">Фотографии работ присланы заказчиками.</p>
+      <p className="mt-4 text-sm text-stone">Фотографии работ присланы заказчиками; образцы сняты в нашем салоне.</p>
     </Section>
   );
 }

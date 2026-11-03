@@ -17,6 +17,7 @@ export function ProjectCard({ project, size = 'md' }: { project: Project; size?:
         src={project.cover}
         alt={project.title}
         isPlaceholder={project.isPlaceholder}
+        credit={project.credit !== false}
         ratio={size === 'lg' ? 'aspect-[4/3]' : 'aspect-[5/4]'}
         className="transition-transform duration-200 group-hover:scale-[1.01]"
       />

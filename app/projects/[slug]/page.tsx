@@ -46,6 +46,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           src={project.images[0]}
           alt={`${project.title} — фото 1`}
           isPlaceholder={project.isPlaceholder}
+          credit={project.credit !== false}
           ratio="aspect-[4/3]"
           className="md:col-span-2"
           sizes="100vw"
@@ -57,6 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             src={img}
             alt={`${project.title} — фото ${i + 2}`}
             isPlaceholder={project.isPlaceholder}
+            credit={project.credit !== false}
             ratio="aspect-[4/3]"
             sizes="(min-width: 768px) 50vw, 100vw"
           />
