@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/ui/Section';
 import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
-import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
+import { CoverImage } from '@/components/ui/CoverImage';
 import { Production } from '@/components/sections/Production';
 import { siteConfig } from '@/config/site';
+import { salonPhotos } from '@/data/salon';
 
 export const metadata: Metadata = {
   title: 'О салоне',
@@ -22,16 +23,29 @@ export default function AboutPage() {
               Мебелью мы занимаемся около 25 лет
             </Heading>
             <Text tone="muted" className="mt-5">
-              За это время менялись фабрики, материалы и технологии, но принцип работы остался
-              прежним: сначала понять задачу клиента, затем найти решение, которое будет хорошо
-              выглядеть и удобно работать в реальном пространстве.
+              За это время менялись материалы и технологии, но принцип работы остался прежним:
+              сначала услышать ваши пожелания, затем подобрать кухню под ваш вкус, размер
+              помещения и бюджет — так, чтобы она хорошо выглядела и была удобна в реальной жизни.
             </Text>
+            <Text tone="muted" className="mt-4">
+              Мы сопровождаем проект от первого разговора до установки и остаёмся на связи после.
+              Многие клиенты возвращаются к нам за новыми проектами.
+            </Text>
+            {/* TODO: когда владелица пришлёт цифры — добавить «N обслуженных клиентов» и
+                процент вернувшихся; без цифр общих утверждений о «высокой лояльности» не пишем. */}
             <Text tone="muted" className="mt-4">
               Сейчас мы — {siteConfig.officialPartnerLine.replace(/^./, (c) => c.toLowerCase())}.
               Салон находится в {siteConfig.mall}, {siteConfig.city}.
             </Text>
           </div>
-          <PlaceholderImage label="салон / владелец" ratio="aspect-[4/3]" />
+          <CoverImage
+            src={salonPhotos.front.src}
+            alt={salonPhotos.front.alt}
+            ratio="aspect-[4/3]"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            credit={false}
+            priority
+          />
         </div>
       </Section>
 
@@ -41,10 +55,17 @@ export default function AboutPage() {
         <Heading level={2} eyebrow="Салон">
           Фото салона
         </Heading>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <PlaceholderImage label="интерьер салона" ratio="aspect-[4/3]" />
-          <PlaceholderImage label="выставочные образцы" ratio="aspect-[4/3]" />
-          <PlaceholderImage label="владелец салона" ratio="aspect-[4/3]" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[salonPhotos.samples, salonPhotos.twoKitchens, salonPhotos.darkWood, salonPhotos.metal].map((photo) => (
+            <CoverImage
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              ratio="aspect-[4/3]"
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              credit={false}
+            />
+          ))}
         </div>
       </Section>
     </>

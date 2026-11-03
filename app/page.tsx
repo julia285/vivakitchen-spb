@@ -4,6 +4,7 @@ import { TrustStrip } from '@/components/sections/TrustStrip';
 import { Categories } from '@/components/sections/Categories';
 import { SalonWorks } from '@/components/sections/SalonWorks';
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
+import { SalonShowroom } from '@/components/sections/SalonShowroom';
 import { WhySalon } from '@/components/sections/WhySalon';
 import { Process } from '@/components/sections/Process';
 import { Designers } from '@/components/sections/Designers';
@@ -22,6 +23,7 @@ export default function HomePage() {
       <SalonWorks />
       <FeaturedProjects />
       <WhySalon />
+      <SalonShowroom />
       <Process />
       <Designers />
       <Production />
