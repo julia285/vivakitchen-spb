@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Container';
 // Installments were removed at the owner's request. TODO: уточнить точные
 // условия гарантии (на что распространяется) перед запуском рекламы.
 const items = [
-  '25 лет опыта',
+  'Более 25 лет опыта',
   'Официальный салон ViVaKitchen',
   'Дизайн-проект в подарок',
   'Гарантия 24 месяца',

@@ -9,7 +9,7 @@ import { salonPhotos } from '@/data/salon';
 
 export const metadata: Metadata = {
   title: 'О салоне',
-  description: `${siteConfig.officialPartnerLine}. Около 25 лет работы с мебелью в Санкт-Петербурге.`,
+  description: `${siteConfig.officialPartnerLine}. Более 25 лет работы с мебелью в Санкт-Петербурге.`,
   alternates: { canonical: '/about' },
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div className="min-w-0">
             <Heading level={1} eyebrow="О салоне">
-              Мебелью мы занимаемся около 25 лет
+              Мебелью мы занимаемся более 25 лет
             </Heading>
             <Text tone="muted" className="mt-5">
               За это время менялись материалы и технологии, но принцип работы остался прежним:
@@ -30,6 +30,10 @@ export default function AboutPage() {
             <Text tone="muted" className="mt-4">
               Мы сопровождаем проект от первого разговора до установки и остаёмся на связи после.
               Многие клиенты возвращаются к нам за новыми проектами.
+            </Text>
+            <Text tone="muted" className="mt-4">
+              Мы постоянно совершенствуемся: бываем на отраслевых выставках, следим за новинками
+              и трендами, улучшаем свою работу и выбираем качественные материалы и комплектующие.
             </Text>
             {/* TODO: когда владелица пришлёт цифры — добавить «N обслуженных клиентов» и
                 процент вернувшихся; без цифр общих утверждений о «высокой лояльности» не пишем. */}
