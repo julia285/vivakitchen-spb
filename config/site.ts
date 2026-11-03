@@ -95,10 +95,13 @@ export const siteConfig = {
   vk: 'https://vk.ru/sputnik_st',
   // Public Telegram account/channel of the salon, e.g. 'https://t.me/vivakitchenspb'.
   // (This is NOT the lead-notification bot — that one only sends to the owner.)
-  telegram: '',
+  // For now this is the owner's own number (her choice): the link opens a chat by
+  // phone number, which only works if that Telegram account allows being found by
+  // number. Swap for 'https://t.me/<username>' once a public username exists.
+  telegram: 'https://t.me/+79214206678',
   // WhatsApp chat link, e.g. 'https://wa.me/79XXXXXXXXX' — the number is visible in
   // the link, so fill it only with the business number the owner chooses to publish.
-  whatsapp: '',
+  whatsapp: 'https://wa.me/79214206678',
   get socialLinks() {
     return [
       { label: 'VK', href: this.vk },

@@ -9,6 +9,7 @@ export type AnalyticsEvent =
   | 'lead_form_submit'
   | 'phone_click'
   | 'email_click'
+  | 'messenger_click'
   | 'map_click'
   | 'project_open'
   | 'designer_cta_click'

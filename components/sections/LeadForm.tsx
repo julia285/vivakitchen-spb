@@ -9,6 +9,7 @@ import { FormField, inputClassName, selectClassName, textareaClassName } from '@
 import { submitLead, LeadCategory, LeadScenario } from '@/services/crm';
 import { getStoredUtm } from '@/lib/utm';
 import { trackEvent } from '@/lib/analytics';
+import { MessengerLinks } from '@/components/MessengerLinks';
 
 const categoryOptions: { value: LeadCategory; label: string }[] = [
   { value: 'kitchen', label: 'Кухня' },
@@ -144,6 +145,7 @@ export function LeadForm() {
           Есть готовый дизайн-проект — рассчитаем его в выбранной модели. Проекта нет — приглашаем
           в салон: вместе составим проект и назовём стоимость.
         </Text>
+        <MessengerLinks className="mt-5" />
 
         <form onSubmit={handleSubmit} noValidate className="mt-8 flex flex-col gap-5 rounded border border-line bg-white p-6 md:p-8">
           <fieldset>
