@@ -43,8 +43,8 @@ export default function AboutPage() {
             </Text>
           </div>
           <CoverImage
-            src={salonPhotos.front.src}
-            alt={salonPhotos.front.alt}
+            src={salonPhotos.owner.src}
+            alt={salonPhotos.owner.alt}
             ratio="aspect-[4/3]"
             sizes="(min-width: 1024px) 50vw, 100vw"
             credit={false}

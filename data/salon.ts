@@ -2,12 +2,13 @@
  * Photos of the salon itself (the exposition in МЦ «Ланской»), shot on a phone
  * by the owner's family and shown as-is. They deliberately carry no
  * "Бренд ViVaKitchen" credit: the exposition is the salon's own, and not every
- * piece on display has to be a ViVaKitchen product. No people, no price tags.
+ * piece on display has to be a ViVaKitchen product. No price tags. The one photo
+ * with a person is the owner, used with her agreement and without a caption.
  */
 
 export type SalonPhoto = { src: string; alt: string };
 
-export const salonPhotos: Record<'front' | 'samples' | 'twoKitchens' | 'darkWood' | 'metal', SalonPhoto> = {
+export const salonPhotos: Record<'front' | 'samples' | 'twoKitchens' | 'darkWood' | 'metal' | 'owner', SalonPhoto> = {
   front: {
     src: '/images/salon/expo-front.webp',
     alt: 'Выставочная кухня в салоне: рифлёные фасады с латунными вставками и стенд с образцами',
@@ -23,6 +24,10 @@ export const salonPhotos: Record<'front' | 'samples' | 'twoKitchens' | 'darkWood
   darkWood: {
     src: '/images/salon/expo-dark-wood.webp',
     alt: 'Выставочная кухня в графитовом цвете с деревянными фасадами по диагонали',
+  },
+  owner: {
+    src: '/images/salon/owner-in-salon.webp',
+    alt: 'В салоне у выставочной кухни: открытые ящики с системами хранения и образцы фасадов',
   },
   metal: {
     src: '/images/salon/samples-metal.webp',
