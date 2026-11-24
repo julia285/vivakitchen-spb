@@ -38,11 +38,10 @@ export const siteConfig = {
   officialPartnerLine: 'Дилер, представитель ТМ ViVaKitchen в Санкт-Петербурге',
 
   // --- Contact ---
-  // Phone is intentionally empty for now (the owner is deciding on a separate
-  // business SIM). Every phone link/row disappears while this is ''; to bring
-  // it back, set both values, e.g. '+7 (XXX) XXX-XX-XX' / 'tel:+7XXXXXXXXXX'.
-  phone: '',
-  phoneHref: '',
+  // New business number given by the owner (the previous personal number was
+  // taken off the site). Every phone link/row disappears while phone is ''.
+  phone: '+7 (966) 926-56-90',
+  phoneHref: 'tel:+79669265690',
   email: 'vivakitchenspb@yandex.ru',
   workingHours: 'Пн–Вс 10:00–20:00',
 
