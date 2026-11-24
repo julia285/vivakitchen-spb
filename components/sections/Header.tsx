@@ -24,6 +24,15 @@ export function Header() {
   const pathname = usePathname();
   const stickyRef = useRef<HTMLDivElement>(null);
   const [stickyHeight, setStickyHeight] = useState(0);
+  // Holiday logo is decided on the client so it switches on and off by date
+  // without a redeploy (the page itself is statically generated).
+  const [holiday, setHoliday] = useState(false);
+
+  useEffect(() => {
+    const { from, to } = siteConfig.seasonalLogo;
+    const today = new Date().toLocaleDateString('sv-SE'); // local YYYY-MM-DD
+    setHoliday(today >= from && today <= to);
+  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -67,14 +76,24 @@ export function Header() {
         <header className="border-b border-line">
           <Container className="flex h-16 items-center justify-between md:h-20">
             <Link href="/" className="flex items-center gap-2.5">
-              <Image
-                src={siteConfig.logo.src}
-                alt={siteConfig.brandShortName}
-                width={siteConfig.logo.width}
-                height={siteConfig.logo.height}
-                priority
-                className="h-5 w-auto shrink-0 sm:h-6 md:h-7"
-              />
+              {holiday ? (
+                <Image
+                  src={siteConfig.seasonalLogo.src}
+                  alt={siteConfig.brandShortName}
+                  width={siteConfig.seasonalLogo.width}
+                  height={siteConfig.seasonalLogo.height}
+                  className="h-7 w-auto shrink-0 sm:h-8 md:h-10"
+                />
+              ) : (
+                <Image
+                  src={siteConfig.logo.src}
+                  alt={siteConfig.brandShortName}
+                  width={siteConfig.logo.width}
+                  height={siteConfig.logo.height}
+                  priority
+                  className="h-5 w-auto shrink-0 sm:h-6 md:h-7"
+                />
+              )}
               <span className="whitespace-nowrap text-xs text-stone sm:text-sm">Санкт-Петербург</span>
             </Link>
 
