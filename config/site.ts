@@ -111,11 +111,16 @@ export const siteConfig = {
   // WhatsApp chat link — the number is visible in the link, so it holds only the
   // business number the owner chose to publish (confirmed to have WhatsApp).
   whatsapp: 'https://wa.me/79669265690',
+  // MAX has no wa.me-style link by phone number: paste the personal profile link
+  // from the app here (avatar -> QR icon -> "Поделиться"), e.g. 'https://max.ru/u/...'.
+  // Stays hidden while empty.
+  max: '',
   get socialLinks() {
     return [
       { label: 'VK', href: this.vk },
       { label: 'Telegram', href: this.telegram },
       { label: 'WhatsApp', href: this.whatsapp },
+      { label: 'Max', href: this.max },
     ].filter((link) => link.href);
   },
 

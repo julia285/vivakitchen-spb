@@ -6,7 +6,7 @@ import clsx from '@/lib/clsx';
 
 /** "Write to us" buttons for the messengers that have an address in config. */
 export function MessengerLinks({ className }: { className?: string }) {
-  const messengers = siteConfig.socialLinks.filter((l) => l.label === 'Telegram' || l.label === 'WhatsApp');
+  const messengers = siteConfig.socialLinks.filter((l) => l.label === 'Telegram' || l.label === 'WhatsApp' || l.label === 'Max');
   if (messengers.length === 0) return null;
 
   return (

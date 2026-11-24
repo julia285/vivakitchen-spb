@@ -103,20 +103,6 @@ export const projects: Project[] = [
       'Кухня коллекции Norma, собранная в нашем салоне: гладкие светло-бежевые фасады, высокие шкафы до потолка с нишей под холодильник и встроенной микроволновкой, ниша для хранения вина. Верхний ряд шкафов — со стеклянными вставками в светлой рамке. Чёрная мойка и тёмная столешница с рисунком создают спокойный контраст.',
     // TODO: уточнить у владельца материалы фасадов и столешницы, район/город, год
   },
-  {
-    slug: 'tumba-vannaya-rebristaya',
-    title: 'Подвесная тумба в ванной с рифлёными фасадами',
-    category: 'Мебель для интерьера',
-    origin: SALON_ORIGIN,
-    cover: '/images/projects/tumba-vannaya-rebristaya/1.webp',
-    images: [
-      '/images/projects/tumba-vannaya-rebristaya/1.webp',
-      '/images/projects/tumba-vannaya-rebristaya/2.webp',
-    ],
-    description:
-      'Подвесная тумба под накладную раковину с двумя выдвижными ящиками. Рифлёный рельеф фасадов и светлая столешница хорошо сочетаются с плиткой с графичным рисунком.',
-    // TODO: уточнить у владельца материалы фасадов и столешницы
-  },
   // Exposition kitchens of the salon (photos from the salon's own shoot). They carry no
   // brand credit: not every piece on display has to be a ViVaKitchen product.
   {
